@@ -1,0 +1,125 @@
+#bar {
+  grid-area: bar;
+}
+#main {
+  grid-area: main;
+}
+
+#site {
+  display: grid;
+  grid-template-areas:
+  'bar'
+  'main';
+  grid-template-columns: auto;
+  grid-template-rows: 50px auto;
+  grid-gap: 1rem;
+}
+
+#bar-main {
+  grid-area: bar-main;
+}
+
+#bar-teams {
+  grid-area: bar-teams;
+}
+
+#bar-tournament {
+  grid-area: bar-tournament;
+}
+
+#bar-replays {
+  grid-area: bar-replays;
+}
+
+#bar {
+  display: grid;
+  grid-template-areas: '. bar-main bar-teams bar-tournament bar-replays .';
+  grid-template-columns: auto repeat(4, minmax(auto, 200px)) auto;
+  grid-template-rows: 50px;
+  grid-gap: 1rem;
+}
+
+
+
+#title {
+	grid-area: title;
+}
+#field {
+	grid-area: field;
+}
+#event {
+	grid-area: event;
+}
+#stats {
+	grid-area: stats;
+}
+#score-sets {
+  grid-area: score-sets;
+}
+#score-game {
+  grid-area: score-game;
+}
+#score-current {
+  grid-area: score-current;
+}
+#touches {
+  grid-area: touches;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  '. title title .'
+  '. field field .'
+  '. event event .'
+  '. stats stats .'
+  '. score-game score-current .'
+  '. score-sets touches .';
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
+  grid-gap: 1rem;
+}
+
+@media (min-width: 600px) {
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  '. title title title .'
+  '. field field score-game .'
+  '. field field score-current .'
+  '. field field score-sets .'
+  '. field field touches .'
+  '. event event event .'
+  '. stats stats stats .';
+  grid-template-columns: auto minmax(auto, 15rem) minmax(auto, 15rem) minmax(auto, 10rem) auto;
+  grid-template-rows: auto 3rem 5rem auto 2rem auto auto;
+  grid-gap: 1rem;
+}
+
+}
+
+
+
+#set1 {
+  grid-area: set1;
+}
+
+#set2 {
+  grid-area: set2;
+}
+
+#set3 {
+  grid-area: set3;
+}
+
+#score-sets {
+  display: grid;
+  grid-template-areas:
+  'set1'
+  'set2'
+  'set3';
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  gap: 0.3rem;
+}

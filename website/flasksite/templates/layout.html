@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/blolleyball/static/main.css">
+    <link rel="stylesheet" type="text/css" href="/blolleyball/static/grid.css">
+    <title>Blolleyball</title>
+</head>
+<body>
+	<div id="site">
+		<div id="bar">
+			<div id="bar-main">
+				<a href="./">
+					<div class="bordered buttoned">
+						Blolleyball
+					</div>
+				</a>
+			</div>
+
+			<div id="bar-teams">
+				<a href="./teams">
+					<div class="bordered buttoned">
+						Teams
+					</div>
+				</a>
+			</div>
+			<div id="bar-tournament">
+				<a href="./tournament">
+					<div class="bordered buttoned">
+						Tournament
+					</div>
+				</a>
+			</div>
+			<div id="bar-replays">
+				<a href="./replays">
+					<div class="bordered buttoned">
+						Replays
+					</div>
+				</a>
+			</div>
+		</div>
+		<div id="main">
+	  		{% block content %}{% endblock %}
+	  	</div>
+  	</div>
+</body>
+</html>

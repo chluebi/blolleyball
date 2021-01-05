@@ -1,0 +1,119 @@
+{
+	"name": "template_team",
+	"players": [
+		{
+			"name":"template_player1",
+			"stats": {
+				"height": 1,
+				"constitution": 0,
+				"agility": 1,
+				"jump": 0,
+				"intelligence": 1,
+				"reflexes": 0,
+				"serve_strength": 1,
+				"serve_precision": 0,
+				"spike_strength": 1,
+				"spike_precision": 0,
+				"overhand_strength": 1,
+				"overhand_precision": 0,
+				"dig_precision": 1,
+				"block_precision": 0
+			}
+		},
+		{
+			"name":"template_player2",
+			"stats": {
+				"height": 1,
+				"constitution": 0,
+				"agility": 1,
+				"jump": 0,
+				"intelligence": 1,
+				"reflexes": 0,
+				"serve_strength": 1,
+				"serve_precision": 0,
+				"spike_strength": 1,
+				"spike_precision": 0,
+				"overhand_strength": 1,
+				"overhand_precision": 0,
+				"dig_precision": 1,
+				"block_precision": 0
+			}
+		},
+		{
+			"name":"template_player3",
+			"stats": {
+				"height": 1,
+				"constitution": 0,
+				"agility": 1,
+				"jump": 0,
+				"intelligence": 1,
+				"reflexes": 0,
+				"serve_strength": 1,
+				"serve_precision": 0,
+				"spike_strength": 1,
+				"spike_precision": 0,
+				"overhand_strength": 1,
+				"overhand_precision": 0,
+				"dig_precision": 1,
+				"block_precision": 0
+			}
+		},
+		{
+			"name":"template_player4",
+			"stats": {
+				"height": 1,
+				"constitution": 0,
+				"agility": 1,
+				"jump": 0,
+				"intelligence": 1,
+				"reflexes": 0,
+				"serve_strength": 1,
+				"serve_precision": 0,
+				"spike_strength": 1,
+				"spike_precision": 0,
+				"overhand_strength": 1,
+				"overhand_precision": 0,
+				"dig_precision": 1,
+				"block_precision": 0
+			}
+		},
+		{
+			"name":"template_player5",
+			"stats": {
+				"height": 1,
+				"constitution": 0,
+				"agility": 1,
+				"jump": 0,
+				"intelligence": 1,
+				"reflexes": 0,
+				"serve_strength": 1,
+				"serve_precision": 0,
+				"spike_strength": 1,
+				"spike_precision": 0,
+				"overhand_strength": 1,
+				"overhand_precision": 0,
+				"dig_precision": 1,
+				"block_precision": 0
+			}
+		},
+		{
+			"name":"template_player6",
+			"stats": {
+				"height": 1,
+				"constitution": 0,
+				"agility": 1,
+				"jump": 0,
+				"intelligence": 1,
+				"reflexes": 0,
+				"serve_strength": 1,
+				"serve_precision": 0,
+				"spike_strength": 1,
+				"spike_precision": 0,
+				"overhand_strength": 1,
+				"overhand_precision": 0,
+				"dig_precision": 1,
+				"block_precision": 0
+			}
+		}
+	]
+}

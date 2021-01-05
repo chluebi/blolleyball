@@ -1,0 +1,119 @@
+{
+    "name": "\ud83d\udddd\ufe0f Berlin Keys",
+    "players": [
+        {
+            "name": "Echo Nox",
+            "stats": {
+                "height": 0.47255421212083965,
+                "constitution": 0.25099327054733894,
+                "agility": 0.8173293250470204,
+                "jump": 0.803808568748514,
+                "intelligence": 0.9594580901257159,
+                "reflexes": 1.0683169863732034,
+                "serve_strength": 0.14610272817494804,
+                "serve_precision": 0.46886979407384477,
+                "spike_strength": 0.7508702909076855,
+                "spike_precision": 1.0668354032100782,
+                "overhand_strength": 0.5066977717234825,
+                "overhand_precision": 0.5756335714675647,
+                "dig_precision": 0.09431001290335343,
+                "block_precision": 0.9840707887379011
+            }
+        },
+        {
+            "name": "Sibren Veenhuis",
+            "stats": {
+                "height": 0.6690282586263938,
+                "constitution": 0.35895724349021085,
+                "agility": 0.09354696045013204,
+                "jump": 0.2621687345748551,
+                "intelligence": 0.07935787555071355,
+                "reflexes": 0.1235118775247367,
+                "serve_strength": 0.21619483552553262,
+                "serve_precision": 0.5327476027202993,
+                "spike_strength": 0.6566853485128752,
+                "spike_precision": 0.4823155061368518,
+                "overhand_strength": 0.3874808719965971,
+                "overhand_precision": 0.22217779138714766,
+                "dig_precision": 0.45604211929776434,
+                "block_precision": 0.3107858924843299
+            }
+        },
+        {
+            "name": "Jaxon Dry",
+            "stats": {
+                "height": 0.2504860589587412,
+                "constitution": 0.3644351866366512,
+                "agility": 0.7249451069522944,
+                "jump": 0.8646751219478767,
+                "intelligence": 1.025417067874544,
+                "reflexes": 0.3739100080437062,
+                "serve_strength": 0.9147262714283985,
+                "serve_precision": 0.1400815899340637,
+                "spike_strength": 0.06491731984738694,
+                "spike_precision": 1.1092438920839665,
+                "overhand_strength": 0.15661422518071624,
+                "overhand_precision": 0.21997475780038103,
+                "dig_precision": 0.8773124716271427,
+                "block_precision": 0.6858754345484962
+            }
+        },
+        {
+            "name": "Caspian Lyn",
+            "stats": {
+                "height": 0.2576151189434207,
+                "constitution": 0.07612715139931317,
+                "agility": 0.561761407246286,
+                "jump": 0.37987666832726436,
+                "intelligence": 0.21695869259987832,
+                "reflexes": 0.03638693582535717,
+                "serve_strength": 0.11328016790810914,
+                "serve_precision": 0.6768289941757095,
+                "spike_strength": 0.6375401847740864,
+                "spike_precision": 0.07809743309289692,
+                "overhand_strength": 0.5108145048016579,
+                "overhand_precision": 0.078452939184511,
+                "dig_precision": 0.08986932703092251,
+                "block_precision": 0.4297829206363203
+            }
+        },
+        {
+            "name": "Kinesh Freiburg",
+            "stats": {
+                "height": 0.6499472167037147,
+                "constitution": 0.5340187628661051,
+                "agility": 0.1201886960367096,
+                "jump": 0.7376816278951753,
+                "intelligence": 0.01892904160987609,
+                "reflexes": 0.6565559782345602,
+                "serve_strength": 0.8081582470200017,
+                "serve_precision": 1.0539263325683812,
+                "spike_strength": 1.1835194736615506,
+                "spike_precision": 0.0528777293656891,
+                "overhand_strength": 0.029472619148982585,
+                "overhand_precision": 1.0274449447476104,
+                "dig_precision": 0.48972339253812547,
+                "block_precision": 1.0689639697792117
+            }
+        },
+        {
+            "name": "Mario Vogl",
+            "stats": {
+                "height": 0.34655275031729665,
+                "constitution": 0.873035651288109,
+                "agility": 0.7618208178949014,
+                "jump": 0.2598241988594512,
+                "intelligence": 0.33128472808918025,
+                "reflexes": 0.041005620361808416,
+                "serve_strength": 0.8765423265923706,
+                "serve_precision": 0.39819837634746574,
+                "spike_strength": 0.35446332556829463,
+                "spike_precision": 0.9899103881947473,
+                "overhand_strength": 0.11226113846704752,
+                "overhand_precision": 1.0393223483161733,
+                "dig_precision": 0.4060171231752367,
+                "block_precision": 1.0454944831022015
+            }
+        }
+    ]
+}

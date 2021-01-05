@@ -1,0 +1,88 @@
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family:Consolas;
+  text-decoration: none;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+.bordered {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 2px;
+  border-radius: 5px;
+
+  padding: 0.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.buttoned {
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.buttoned:hover {
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+
+
+#field-text {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  white-space: pre;
+  font-size: 1.6rem;
+  width: 20rem;
+}
+
+
+#score-game {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+#score-current, #teams {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#selected-team, .bracket {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#score-sets {
+  font-size: 1rem;
+}
+
+.bracket {
+  font-size: 0.7rem;
+}
+
+#score-sets, #touches {
+  padding: 0.3rem;
+}
+
+.team .player .bracket {
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.team:hover {
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+

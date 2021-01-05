@@ -1,0 +1,119 @@
+{
+    "name": "\ud83d\ude95 Hamburg Taxis",
+    "players": [
+        {
+            "name": "Taute Wildmane",
+            "stats": {
+                "height": 1.2783654138314513,
+                "constitution": 0.8181827954877731,
+                "agility": 0.7458266654352506,
+                "jump": 0.5543968606973051,
+                "intelligence": 0.47814542726365616,
+                "reflexes": 1.2261592747997543,
+                "serve_strength": 0.6945756974517988,
+                "serve_precision": 1.4588954496288142,
+                "spike_strength": 1.0193283796048216,
+                "spike_precision": 0.8484224296264851,
+                "overhand_strength": 0.9823103965495651,
+                "overhand_precision": 0.257944794625789,
+                "dig_precision": 0.9419606477358252,
+                "block_precision": 0.8066196555946697
+            }
+        },
+        {
+            "name": "Gwentin Tizwyn",
+            "stats": {
+                "height": 0.5300344876212829,
+                "constitution": 0.2713866638945638,
+                "agility": 0.5243702182994513,
+                "jump": 0.4930606182717478,
+                "intelligence": 0.5018578744393238,
+                "reflexes": 0.025087982104719228,
+                "serve_strength": 0.4315836286971587,
+                "serve_precision": 0.1809629166438958,
+                "spike_strength": 0.3520504088918064,
+                "spike_precision": 0.10272117602041204,
+                "overhand_strength": 0.3800792608706196,
+                "overhand_precision": 0.5519330917713333,
+                "dig_precision": 0.5067605892323617,
+                "block_precision": 0.5459876184485165
+            }
+        },
+        {
+            "name": "Brown Cobra",
+            "stats": {
+                "height": 0.16217885041314492,
+                "constitution": 0.14297999148638776,
+                "agility": 0.13157336450789348,
+                "jump": 0.19928033693427435,
+                "intelligence": 0.05601697323861086,
+                "reflexes": 0.22610510680961132,
+                "serve_strength": 0.06739155853795115,
+                "serve_precision": 0.3790233966921213,
+                "spike_strength": 0.24444423952904498,
+                "spike_precision": 0.1181109882746971,
+                "overhand_strength": 0.37750091342365283,
+                "overhand_precision": 0.2719680707466888,
+                "dig_precision": 0.3136682447585874,
+                "block_precision": 0.12705399964487463
+            }
+        },
+        {
+            "name": "Pink Mechanical",
+            "stats": {
+                "height": 1.5429575485773392,
+                "constitution": 0.4257727741413117,
+                "agility": 1.2260720628917938,
+                "jump": 1.5796538495220367,
+                "intelligence": 0.8593166896489253,
+                "reflexes": 0.16340058911660502,
+                "serve_strength": 0.6388409580702972,
+                "serve_precision": 0.9884551422524187,
+                "spike_strength": 1.600117285670918,
+                "spike_precision": 0.8684239292991733,
+                "overhand_strength": 0.3547918982995365,
+                "overhand_precision": 0.10364160834195243,
+                "dig_precision": 0.9928052840808422,
+                "block_precision": 1.269413998630449
+            }
+        },
+        {
+            "name": "Penguin Pitch",
+            "stats": {
+                "height": 0.16391558197634454,
+                "constitution": 0.07325544039164378,
+                "agility": 0.17285309979223798,
+                "jump": 0.41143513596615794,
+                "intelligence": 0.6856463788518371,
+                "reflexes": 0.8026937873156265,
+                "serve_strength": 0.8608873505268434,
+                "serve_precision": 0.053726786725561373,
+                "spike_strength": 0.7737954353131871,
+                "spike_precision": 0.5177548238099627,
+                "overhand_strength": 0.39960889162348434,
+                "overhand_precision": 0.7323454235785288,
+                "dig_precision": 0.1857225368040669,
+                "block_precision": 0.34502677276739024
+            }
+        },
+        {
+            "name": "Tretan Boradil",
+            "stats": {
+                "height": 0.2306442310496584,
+                "constitution": 0.034572882073109455,
+                "agility": 0.336048847717839,
+                "jump": 0.3282628805231196,
+                "intelligence": 0.27146507517742885,
+                "reflexes": 0.0182730819343404,
+                "serve_strength": 0.26529996059105987,
+                "serve_precision": 0.2504640716275325,
+                "spike_strength": 0.17252005835458503,
+                "spike_precision": 0.34947526359474407,
+                "overhand_strength": 0.10088938985106867,
+                "overhand_precision": 0.16183808942544373,
+                "dig_precision": 0.07934014552296556,
+                "block_precision": 0.28226850003294507
+            }
+        }
+    ]
+}

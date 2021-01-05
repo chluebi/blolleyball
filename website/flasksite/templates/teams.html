@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/blolleyball/static/grid-teams.css">
+<div class="grid-container">
+	<h1 class="title" id="title">
+		Teams
+	</h1>
+	<div id="teams">
+		{% for team in teams %}
+			<a  class="team bordered">
+				<div>
+				{{ team.name }}
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+	<h1 class="title" id="team-title">
+		No Team Selected
+	</h1>
+	<div id="selected-team">
+	</div>
+	<script>
+		teams = document.querySelector('#teams');
+		children = teams.children;
+		for (let i = 0; i < children.length; i++) {
+		  let team = children[i];
+		  team.addEventListener('click', function(){
+    		selectTeam(i);
+		  });
+		}
+
+		teams_data = 0
+		fetch('./api/teams')
+  			.then(response => response.json())
+  			.then(data => teams_data = data['data'])
+		
+		selectTeam = function(id) {
+			team = teams_data[id]
+			titleDiv = document.querySelector('#team-title')
+			titleDiv.innerHTML = team.name
+			titleDiv.hidden = false
+
+			selectedTeam = document.querySelector('#selected-team')
+			selectedTeam.hidden = false
+
+			while (selectedTeam.firstChild) {
+        		selectedTeam.removeChild(selectedTeam.firstChild);
+    		}
+
+			for (player of team.players) {
+				playerDiv = document.createElement('div')
+				playerText = document.createTextNode(player.name + " ★" + player.rating)
+				playerDiv.appendChild(playerText)
+				playerDiv.classList.add('player')
+				playerDiv.classList.add('bordered')
+				selectedTeam.appendChild(playerDiv)
+			}
+		}
+
+	</script>
+</div>
+{% endblock content %}

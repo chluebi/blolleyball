@@ -1,0 +1,18 @@
+
+
+#tournament {
+	display: grid;
+	grid-template-areas:
+	'. . . . . . . . .'
+	'. b11 . . . . . b15 .'
+	'. . b21 . . . b23 . .'
+	'. b12 . . . . . b16 .'
+	'. . . b31 b41 b32 . . .'
+	'. b13 . . . . . b17 .'
+	'. . b22 . . . b24 . .'
+	'. b14 . . . . . b18 .'
+	'. . . . . . . . .';
+	grid-template-columns: repeat(9, minmax(150px, auto));
+	grid-template-rows: repeat(9, minmax(50px, auto));
+	grid-gap: 0.5rem;
+}

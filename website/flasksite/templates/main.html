@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="grid-container">
+    	<h1 id="title">
+		Blolleyball - No match currently in progress
+		</h1>
+	    <div class="bordered" id="field">
+	    	<div id="field-text"></div>
+		</div>
+		<div class="bordered" id="score-game">
+		</div>
+		<div class="bordered" id="score-current">
+		</div>
+		<div class="bordered" id="score-sets">
+			<div id="set1">
+			</div>
+			<div id="set2">
+			</div>
+			<div id="set3">
+			</div>
+		</div>
+		<div class="bordered" id="touches">
+			touches: 0
+		</div>
+		<div class="bordered" id="event">
+		</div>
+		<div class="bordered" id="stats">
+		</div>
+	</div>
+	<script src="/blolleyball/static/socket.js"></script>
+{% endblock content %}
