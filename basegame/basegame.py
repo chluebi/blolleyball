@@ -245,7 +245,11 @@ class Match:
 					blockers = self.ball[3] # val, p_id, stats
 					number_b = sum([1 for e in blockers if e[0]])
 
-					ball_pos = ball_slot * 2 + ball_y
+					if ball_slot in [3, 4, 5]:
+						ball_pos = ball_slot * 2 + ball_y
+					else:
+						ball_pos = front(ball_slot) * 2 + ball_y
+
 					ball_pos = 17 - ball_pos
 
 					def get_pos(right):
@@ -311,10 +315,18 @@ class Match:
 					if ball_side == j and ball_slot == i and ball_sum_pos > -1:
 						player_s[ball_y][ball_x] = '@'
 
-					if i == 6:
-						if player_s[0][0] == str(7):
-							player_s = [str(p_num) + player_s[0][1]]
+
+					if ball_status == 'serve':
+						if ball_side == j:
+							if i == 6:
+								player_s = [str(p_num) + '@']
+							if i == 0:
+								player_s = [['    '], ['    ']]
 						else:
+							if i == 6:
+								player_s = ['  ']
+					else:
+						if i == 6:
 							player_s = ['  ']
 
 					if j == 1:
@@ -596,7 +608,7 @@ class Match:
 
 		possibles = [num for num in range(0, 6) if num != p]
 		# bias in favour of front spikers
-		for i in range(20):
+		for i in range(10):
 			possibles += [num for num in range(3, 6) if num != p]
 
 		other_p = random.choice(possibles)
@@ -709,10 +721,10 @@ class Match:
 			endstring += bar('Intelligence', 1, spike_intelligence)
 			self.event(endstring, field=False, stat=True)
 
-		return [self.block_prepare, [flip(team_id), other_p, mirror(front(p)), spike_precision, spike_strength, spike_speed, spike_intelligence, spike_height]]
+		return [self.block_prepare, [flip(team_id), p, other_p, mirror(front(p)), spike_precision, spike_strength, spike_speed, spike_intelligence, spike_height]]
 
 
-	def block_prepare(self, team_id, target, pos, ball_precision, ball_strength, ball_speed, ball_intelligence, ball_height):
+	def block_prepare(self, team_id, spiker, target, pos, ball_precision, ball_strength, ball_speed, ball_intelligence, ball_height):
 		target_player = self.teams[team_id].rotation[target]
 
 		def b_speed(player):
@@ -744,7 +756,7 @@ class Match:
 		elif active_blockers[2] is False and random.randint(0, 1) == 1:
 			active_blockers[0], active_blockers[1], active_blockers[2] = active_blockers[2], active_blockers[0], active_blockers[1]
 
-		self.ball = [flip(team_id), mirror(pos), 'block', active_blockers]
+		self.ball = [flip(team_id), spiker, 'block', active_blockers]
 
 		s = ''
 		if len(active_blockers_listed) == 0:

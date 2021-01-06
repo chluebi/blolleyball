@@ -20,6 +20,10 @@ def load_teams():
 
 	return teams_data
 
+def get_folder(path, folder_only=False):
+	return [{'name': file.replace('_', ' ').capitalize(), 'link': file} for file in os.listdir(path) if not folder_only or os.path.isdir(os.path.join(path, file))]
+
+
 def json_load_teams():
 	return json.dumps({'data': load_teams()})
 

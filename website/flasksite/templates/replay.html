@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+	<link rel="stylesheet" type="text/css" href="/blolleyball/static/grid-replay.css">
+	<div class="bordered">
+		Replay of <b id="url">{{ replay_category }}/{{ game }}</b>
+	</div>
+	<div id="controls">
+		<a id="progress" class="bordered centering">
+			<b id="progress-current">0</b>/<b id="progress-end">0</b>
+		</a>
+		<a id="back-to-start" class="bordered buttoned" onclick="backToStart()">
+			⏮️
+		</a>
+		<a id="back-fast" class="bordered buttoned" onclick="backFast()">
+			⏪
+		</a>
+		<a id="back" class="bordered buttoned" onclick="back()">
+			<
+		</a>
+		<a id="play" class="bordered buttoned" onclick="play()">
+			▶️
+		</a>
+		<a id="forward" class="bordered buttoned" onclick="forward()">
+			>
+		</a>
+		<a id="forward-fast" class="bordered buttoned" onclick="forwardFast()">
+			⏩
+		</a>
+		<a id="forward-to-end" class="bordered buttoned" onclick="forwardToEnd()">
+			⏭️
+		</a>
+		<a id="share" class="bordered buttoned centering" onclick="share()">
+			<b id="share-text">Share</b>
+			<div id="share-copy">
+				<input id="share-field" value="">
+			</div>
+		</a>
+	</div>
+	<div class="grid-container">
+    	<h1 id="title">
+		Blolleyball - <i id="loading">Replay is being downloaded </i>
+		</h1>
+	    <div class="bordered" id="field">
+	    	<div id="field-text"></div>
+		</div>
+		<div class="bordered" id="score-game">
+		</div>
+		<div class="bordered" id="score-current">
+		</div>
+		<div class="bordered" id="score-sets">
+			<div id="set1">
+			</div>
+			<div id="set2">
+			</div>
+			<div id="set3">
+			</div>
+		</div>
+		<div class="bordered" id="touches">
+			touches: 0
+		</div>
+		<div class="bordered" id="event">
+		</div>
+		<div class="bordered" id="stats">
+		</div>
+	</div>
+	<script src="/blolleyball/static/replay.js"></script>
+{% endblock content %}

@@ -1,4 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-	Coming soon...
+	<div id="folders" class="horizontal-grid">
+	{% for file in files %}
+		<a href="/{{ path }}/{{ file.link }}">
+			<div class="buttoned bordered">
+				{{ file.name }}
+			</div>
+		</a>
+	{% endfor %}
+	</div>
 {% endblock content %}
