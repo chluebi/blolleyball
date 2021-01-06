@@ -1,0 +1,41 @@
+
+#share-field {
+	display: none;
+}
+
+
+#progress {
+	grid-area: progress;
+}
+#back-to-start {
+	grid-area: back-to-start;
+}
+#back-fast {
+	grid-area: back-fast;
+}
+#back {
+	grid-area: back;
+}
+#play {
+	grid-area: play;
+}
+#forward {
+	grid-area: forward;
+}
+#forward-fast {
+	grid-area: forward-fast;
+}
+#forward-to-end {
+	grid-area: forward-to-end;
+}
+#share {
+	grid-area: share;
+}
+
+#controls {
+	display: grid;
+	grid-template-areas: '. progress . back-to-start back-fast back play forward forward-fast forward-to-end . share .';
+	grid-template-columns: auto repeat(8, auto) auto auto auto;
+	gap: 1rem;
+	margin-top: 2rem;
+}

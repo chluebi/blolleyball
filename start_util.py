@@ -1,1 +1,1 @@
-from util import team_generator
+from util import test_game

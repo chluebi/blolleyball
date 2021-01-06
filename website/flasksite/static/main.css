@@ -9,6 +9,10 @@ a, a:hover, a:active, a:visited, a:focus {
     text-decoration:none;
 }
 
+.centering {
+  text-align: center;
+}
+
 .bordered {
   border-style: solid;
   border-color: #ffffff;

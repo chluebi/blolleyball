@@ -1,3 +1,10 @@
+.horizontal-grid {
+  display: grid;
+  grid-template-columns: 10rem;
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
 #bar {
   grid-area: bar;
 }

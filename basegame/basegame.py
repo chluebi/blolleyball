@@ -210,24 +210,140 @@ class Match:
 
 	def render(self):
 		ball_side = self.ball[0]
-		ball_pos = self.ball[1]
+		ball_slot = self.ball[1]
+		ball_status = self.ball[2]
 
-		b1 = ['@' if ball_side == 0 and ball_pos == pos else ' ' for pos in range(7)]
-		b2 = ['@' if ball_side == 1 and ball_pos == pos else ' ' for pos in range(7)]
+		f = [[['    ' for i in range(2)] for j in range(7)] for k in range(2)]
 
-		t1 = [p.number for p in self.teams[0].rotation]
-		if ball_side == 0 and ball_pos == 6:
-			t1.append(t1[0])
-			t1[0] = ' '
+		if ball_status in ['receive']:
+			ball_x = 1
+			ball_y = random.randint(0, 1)
+		elif ball_status in ['pass']:
+			ball_x = 1
+			ball_y = random.randint(0, 1)
+		elif ball_status in ['set', 'spike', 'block']:
+			ball_x = 3
+			ball_y = ball_side
+		elif ball_status in ['serve']:
+			ball_x = 1
+			ball_y = 0
 		else:
-			t1.append(' ')
+			ball_x = 0
+			ball_y = -1
 
-		t2 = [p.number for p in self.teams[1].rotation]
-		if ball_side == 1 and ball_pos == 6:
-			t2.append(t2[0])
-			t2[0] = ' '
-		else:
-			t2.append(' ')
+		ball_sum_pos = ball_x + ball_y * 4
+		
+		for j, side in enumerate(f):
+
+			for i, slot in enumerate(side):
+				if i < 6:
+					p_num = self.teams[j].rotation[i].number
+				else:
+					p_num = self.teams[j].rotation[0].number
+
+				if ball_side != j and ball_status in ['block'] and i in [3, 4, 5]:
+					blockers = self.ball[3] # val, p_id, stats
+					number_b = sum([1 for e in blockers if e[0]])
+
+					if ball_slot in [3, 4, 5]:
+						ball_pos = ball_slot * 2 + ball_y
+					else:
+						ball_pos = front(ball_slot) * 2 + ball_y
+
+					ball_pos = 17 - ball_pos
+
+					def get_pos(right):
+						return ((6 + right) // 2, (6 + right) % 2)
+					
+					if blockers[i-3][0]:
+						s = f'   {p_num}' if j == 0 else f'{p_num}   '
+						if ball_pos == 6:
+							pos = [get_pos(0), get_pos(1), get_pos(2)][i-3]
+						elif ball_pos == 7:
+							pos = [get_pos(0), get_pos(1), get_pos(2)][i-3]
+						elif ball_pos == 8:
+							pos = [get_pos(1), get_pos(2), get_pos(3)][i-3]
+						elif ball_pos == 9:
+							pos = [get_pos(2), get_pos(3), get_pos(4)][i-3]
+						elif ball_pos == 10:
+							pos = [get_pos(3), get_pos(4), get_pos(5)][i-3]
+						elif ball_pos == 11:
+							pos = [get_pos(3), get_pos(4), get_pos(5)][i-3]
+						else:
+							raise Exception('Unknown ball_pos')
+
+						player_slot = pos[0]
+						player_y = pos[1]
+
+						f[j][player_slot][player_y] = s
+					else:
+						player_x = ball_x - 1
+						player_y = ball_y
+
+						player_s = [[' ' for _ in range(4)] for __ in range(2)]
+						player_s[player_y][player_x] = str(p_num)
+
+						if j == 1:
+							player_s = [e[::-1] for e in player_s]
+
+						if i == 6:
+							player_s = [player_s[0][0] + player_s[0][1]]
+
+						f[j][i] = [''.join(e) for e in player_s]
+
+				else:
+					if ball_side == j and ball_slot == i:
+						if ball_status in ['receive', 'pass', 'point']:
+							player_x = ball_x - 1
+							player_y = ball_y
+						elif ball_status in ['set', 'spike', 'block']:
+							player_x = ball_x - 1
+							player_y = ball_y
+						elif ball_status in ['serve']:
+							player_x = 0
+							player_y = 0
+						else:
+							raise Exception(f'unknown ball status {ball_status}')
+					else:
+						player_x = random.randint(1, 2)
+						player_y = flip(j)
+
+					player_s = [[' ' for _ in range(4)] for __ in range(2)]
+					player_s[player_y][player_x] = str(p_num)
+					
+
+					if ball_side == j and ball_slot == i and ball_sum_pos > -1:
+						player_s[ball_y][ball_x] = '@'
+
+
+					if ball_status == 'serve':
+						if ball_side == j:
+							if i == 6:
+								player_s = [str(p_num) + '@']
+							if i == 0:
+								player_s = [['    '], ['    ']]
+						else:
+							if i == 6:
+								player_s = ['  ']
+					else:
+						if i == 6:
+							player_s = ['  ']
+
+					if j == 1:
+						player_s = [e[::-1] for e in player_s]
+
+					f[j][i] = [''.join(e) for e in player_s]
+				
+
+
+		return f'''   _ _ _ _   _ _ _ _
+  |{f[0][2][0]}{f[0][3][0]}|{f[1][5][1]}{f[1][0][1]}|  
+  |{f[0][2][1]}{f[0][3][1]}|{f[1][5][0]}{f[1][0][0]}|  
+  |{f[0][1][0]}{f[0][4][0]}|{f[1][4][1]}{f[1][1][1]}|  
+{f[0][6][0]}|{f[0][1][1]}{f[0][4][1]}|{f[1][4][0]}{f[1][1][0]}|{f[1][6][0]}
+  |{f[0][0][0]}{f[0][5][0]}|{f[1][3][1]}{f[1][2][1]}|  
+  |{f[0][0][1]}{f[0][5][1]}|{f[1][3][0]}{f[1][2][0]}|  
+  |_ _ _ _ |_ _ _ _ |'''
 
 		f'''
 		  _ _ _ _   _ _ _ _
@@ -288,16 +404,24 @@ class Match:
 		self.last_point = None
 
 		if self.set_count % 2 == 1:
-			self.ball = [self.first_serve, 7]
+			self.ball = [self.first_serve, 6, 'serve']
+
+			server = self.teams[self.first_serve].rotation[0]
+			self.event(f'{server} is serving for {self.teams[self.first_serve]}', field=True)
+			
 			return [self.serve, [self.first_serve]]
 		else:
-			self.ball = [flip(self.first_serve), 7]
+			self.ball = [flip(self.first_serve), 6, 'serve']
+
+			server = self.teams[flip(self.first_serve)].rotation[0]
+			self.event(f'{server} is serving for {self.teams[flip(self.first_serve)]}', field=True)
+			
 			return [self.serve, [flip(self.first_serve)]]
 
 	def point(self, team_id):
 		team = self.teams[team_id]
 		self.score[-1][team_id] += 1
-		self.ball = [team_id, 6]
+		self.ball = [team_id, 6, 'serve']
 		self.touches = 0
 
 		if False:
@@ -326,9 +450,9 @@ class Match:
 				else:
 					self.last_point = team_id
 
-				server = self.teams[team_id].rotation[0]
-				self.event(f'{server} is serving for {self.teams[team_id]}', field=True)
-				return [self.serve, [team_id]]
+		server = self.teams[team_id].rotation[0]
+		self.event(f'{server} is serving for {self.teams[team_id]}', field=True)
+		return [self.serve, [team_id]]
 
 	def determine_start(self):
 		self.first_serve = random.randint(0, 1)
@@ -336,7 +460,7 @@ class Match:
 		return [self.start_set, []]
 
 	def serve(self, team_id):
-		self.ball = [team_id, 6]
+		self.ball = [team_id, 6, 'serve']
 		server = self.teams[team_id].rotation[0]
 		#self.event(f'{server} is serving for {self.teams[team_id]}')
 		serve_type = ''
@@ -374,7 +498,7 @@ class Match:
 			else:
 				other_p = random.choice([3, 4, 5])
 
-			self.ball = [flip(team_id), other_p]
+			self.ball = [flip(team_id), other_p, 'receive']
 			other_player = self.teams[flip(team_id)].rotation[other_p]
 			self.event(f'{server} makes a {serve_type} towards {other_player}')
 			self.touches = 0
@@ -440,7 +564,7 @@ class Match:
 			if self.touches < 3:
 				other_p = wrap(p + random.choice([-1, 1]), 0, 5)
 				other_player = self.teams[team_id].rotation[other_p]
-				self.ball = [team_id, other_p]
+				self.ball = [team_id, other_p, 'receive']
 				self.event(f'{player} fails to properly pass the ball and the ball goes to {other_player}')
 				info()
 				return [self.receive, [team_id, other_p, ball_precision*0.7, ball_strength*0.5, 1-deviate(receive_precision)]]
@@ -451,7 +575,7 @@ class Match:
 		elif (receive_precision < 0.6 and ball_strength > 0.4) or self.touches > 2:
 			self.touches = 0
 			other_p = random.randint(0, 5)
-			self.ball = [flip(team_id), other_p]
+			self.ball = [flip(team_id), other_p, 'receive']
 			self.event(f'{player} passes the ball to the other side of the net')
 			info()
 			return [self.receive, [flip(team_id), other_p, receive_precision, 0, -1]]
@@ -472,7 +596,7 @@ class Match:
 			other_p = random.choice(possibles)
 			other_player = self.teams[team_id].rotation[other_p]
 
-			self.ball = [team_id, other_p]
+			self.ball = [team_id, other_p, 'pass']
 			self.event(f'{player} passes the ball to {other_player}')
 			info()
 			return [self.set, [team_id, other_p, receive_precision]]
@@ -484,12 +608,12 @@ class Match:
 
 		possibles = [num for num in range(0, 6) if num != p]
 		# bias in favour of front spikers
-		for i in range(20):
+		for i in range(10):
 			possibles += [num for num in range(3, 6) if num != p]
 
 		other_p = random.choice(possibles)
 		other_player = self.teams[team_id].rotation[other_p]
-		self.ball = [team_id, other_p]
+		self.ball = [team_id, other_p, 'set']
 
 		set_speed = player.stats['overhand_strength']
 		set_precision = player.stats['overhand_precision']
@@ -500,11 +624,11 @@ class Match:
 		elif self.touches > 2 or deviate(pass_precision) > 2.5:
 			self.touches -= 1
 			self.event(f'{player} jumps for setter drop', field=False)
-			return [self.spike, [team_id, p, max(0.5, pass_precision), 0]]
+			return [self.spike, [team_id, p, max(0.5, pass_precision), 2]]
 		elif pass_precision + player.stats['agility'] < 0.5:
 			other_p = wrap(p + random.choice([-1, 1]), 0, 5)
 			other_player = self.teams[team_id].rotation[other_p]
-			self.ball = [team_id, other_p]
+			self.ball = [team_id, other_p, 'receive']
 			self.event(f'{player} fails to touch the ball and the ball goes to {other_player}')
 			return [self.receive, [team_id, other_p, deviate(2), deviate(0.2), 1-deviate(pass_precision)]]
 		if deviate(pass_precision) + player.stats['jump'] > 2:
@@ -515,6 +639,10 @@ class Match:
 			self.event(f'{player} sets the ball for {other_player}')
 			set_speed = player.stats['overhand_strength'] * 1.5
 			set_precision = pass_precision * 0.4 + player.stats['overhand_precision'] * 1.2 + player.stats['intelligence'] * 0.3
+
+		speed_cat = random.randint(1, 3)
+		set_speed = set_speed * speed_cat
+		set_precision = set_precision / max(1, speed_cat - player.stats['overhand_precision']*2)
 
 		if self.debug:
 			self.event('set' + str((set_speed, set_precision)), field=False)
@@ -536,7 +664,7 @@ class Match:
 		spike_speed = set_speed
 		spike_height = player.stats['height']
 
-		if set_precision*3 - set_speed + deviate(player.stats['reflexes']*4) < 2.5:
+		if set_precision*3 - set_speed + deviate(player.stats['reflexes']*8) < 2.5:
 			self.event(f'{player} fails to hit the ball for a spike', field=False)
 			return [self.point, [flip(team_id)]]
 		elif set_precision*3 - set_speed + player.stats['reflexes']*2 < 2.5:
@@ -544,7 +672,7 @@ class Match:
 			other_player = self.teams[flip(team_id)].rotation[other_p]
 
 			self.touches = 0
-			self.ball = [flip(team_id), other_p]
+			self.ball = [flip(team_id), other_p, 'receive']
 			self.event(f'{player} misses the spike, barely hitting the ball to the other side to {other_player}')
 			return [self.receive, [flip(team_id), other_p, player.stats['reflexes']*0.5, player.stats['spike_strength']*0.1, set_speed-0.5]]
 		else:
@@ -579,7 +707,8 @@ class Match:
 				other_player = self.teams[flip(team_id)].rotation[other_p]
 
 		self.touches = 0
-		self.event(f'{player} spikes the ball')
+		self.event(f'{player} spikes the ball', field=False)
+		self.ball = [team_id, p, 'spike']
 
 		if self.debug:
 			self.event(f'spike' + str((spike_precision, spike_strength, spike_speed, spike_height, spike_intelligence)), field=False)
@@ -587,151 +716,94 @@ class Match:
 			endstring = '[Spike]\n'
 			endstring += bar('Precision', 3, spike_precision) + '\n'
 			endstring += bar('Strength', 3, spike_strength) + '\n'
-			endstring += bar('Speed', 2, spike_speed) + '\n'
+			endstring += bar('Speed', 3, spike_speed+1) + '\n'
 			endstring += bar('Height', 3, spike_height) + '\n'
 			endstring += bar('Intelligence', 1, spike_intelligence)
 			self.event(endstring, field=False, stat=True)
 
-		return [self.block, [flip(team_id), other_p, mirror(front(p)), spike_precision, spike_strength, spike_speed, spike_intelligence, spike_height]]
+		return [self.block_prepare, [flip(team_id), p, other_p, mirror(front(p)), spike_precision, spike_strength, spike_speed, spike_intelligence, spike_height]]
 
-	def block(self, team_id, target, pos, ball_precision, ball_strength, ball_speed, ball_intelligence, ball_height):
+
+	def block_prepare(self, team_id, spiker, target, pos, ball_precision, ball_strength, ball_speed, ball_intelligence, ball_height):
 		target_player = self.teams[team_id].rotation[target]
-		
+
 		def b_speed(player):
 			return max(player.stats['reflexes']*0.5 + player.stats['height'] + player.stats['jump'] * 0.3, player.stats['intelligence'] - ball_intelligence*0.5 + player.stats['height'] + player.stats['jump'] * 0.3)
 
-		block_precision = 0
-		block_constitution = 0
-		block_speed = 0
-		block_height = 0
+		block_pos = 'side' if pos in [3, 5] else 'mid'
 
-		if pos in [3, 5]:
-			b = pos
-			b_player = self.teams[team_id].rotation[b]
-			mb = 4
-			mb_player = self.teams[team_id].rotation[mb]
-			ob = 5 if b == 3 else 3
-			ob_player = self.teams[team_id].rotation[ob]
+		blockers_pos = [3, 4, 5]
+		blockers = [self.teams[team_id].rotation[p] for p in blockers_pos]
 
-			blockers = {
-				'side': {
-					'block_precision': 0,
-					'block_constitution': 0,
-					'block_speed': 0,
-					'block_height': 0
-				},
-				'mid': {
-					'block_precision': 0,
-					'block_constitution': 0,
-					'block_speed': 0,
-					'block_height': 0
-				},
-				'far-mid':
-				{
-					'block_precision': 0,
-					'block_constitution': 0,
-					'block_speed': 0,
-					'block_height': 0
-				}
-			}
+		def get_stats(b_player, p_pos, b_pos):
+			stats = {}
+			stats['block_precision'] = b_player.stats['block_precision']*0.7 + b_player.stats['reflexes']*0.3
+			stats['block_constitution'] = b_player.stats['constitution']*0.9 + b_player.stats['reflexes']*0.1
+			stats['block_speed'] = b_speed(b_player) - 0.5 * abs(p_pos - b_pos)
+			stats['block_height'] = b_player.stats['height'] + b_player.stats['jump']*0.5
+			return stats
 
-			
-			blockers['side']['block_precision'] = b_player.stats['block_precision']*0.7 + b_player.stats['reflexes']*0.3 
-			blockers['side']['block_constitution'] = b_player.stats['constitution']*0.9 + b_player.stats['reflexes']*0.1
-			blockers['side']['block_speed'] = b_speed(b_player)
-			blockers['side']['block_height'] = b_player.stats['height'] + b_player.stats['jump']*0.5
+		blocker_stats = [get_stats(p, blockers_pos[i], pos) for i, p in enumerate(blockers)]
 
-			blockers['mid']['block_precision'] = mb_player.stats['block_precision']*0.7 + mb_player.stats['reflexes']*0.3 
-			blockers['mid']['block_constitution'] = mb_player.stats['constitution']*0.9 + mb_player.stats['reflexes']*0.1
-			blockers['mid']['block_speed'] = b_speed(mb_player) - 0.5
-			blockers['mid']['block_height'] = mb_player.stats['height'] + mb_player.stats['jump']*0.5
+		active_blockers = [[True, p, blocker_stats[i]] if blocker_stats[i]['block_speed'] > ball_speed else [False, p, blocker_stats[i]] for i, p in enumerate(blockers)]
+		active_blockers_listed = [p for i, p in enumerate(blockers) if active_blockers[i][0]]
 
-			blockers['far-mid']['block_precision'] = ob_player.stats['block_precision']*0.7 + ob_player.stats['reflexes']*0.3 
-			blockers['far-mid']['block_constitution'] = ob_player.stats['constitution']*0.9 + ob_player.stats['reflexes']*0.1
-			blockers['far-mid']['block_speed'] = b_speed(ob_player) - 1
-			blockers['far-mid']['block_height'] = ob_player.stats['height'] + ob_player.stats['jump']*0.5
-			
-			positions = ['side', 'mid', 'far-mid']
+		if target in blockers_pos:
+			target = back(target)
 
-			if max([blockers[x]['block_speed'] for x in positions]) < ball_speed * 0.3:
-				self.ball = [team_id, target]
-				self.event('Nobody reacts to block', field=False)
-				return [self.receive, [team_id, target, ball_precision, ball_strength, ball_speed]]
+		if active_blockers[0] is False and random.randint(0, 1) == 1:
+			active_blockers[0], active_blockers[1], active_blockers[2] = active_blockers[1], active_blockers[2], active_blockers[0]
+		elif active_blockers[2] is False and random.randint(0, 1) == 1:
+			active_blockers[0], active_blockers[1], active_blockers[2] = active_blockers[2], active_blockers[0], active_blockers[1]
 
-			if ball_intelligence > 0.6 and ball_precision > 1.6:
-				attack = min(positions, key=lambda x: blockers[x]['block_speed'])
-			elif ball_precision > 1.3:
-				attack = random.choice(positions)
-			else:
-				attack = positions[0]
+		self.ball = [flip(team_id), spiker, 'block', active_blockers]
 
-			blocker = blockers[attack]
-			blocker_dict = {'side':b, 'mid':mb, 'far-mid':ob}
-			blocker_player_id = blocker_dict[attack]
-			
+		s = ''
+		if len(active_blockers_listed) == 0:
+			s = 'No blocker is able to react to block the ball'
+		elif len(active_blockers_listed) == 1:
+			player_str = str(active_blockers_listed[0])
+			s = '{0} jumps to block the ball'.format(player_str)
+		elif len(active_blockers_listed) == 2:
+			player_str = str(active_blockers_listed[0]) + ' and ' + str(active_blockers_listed[1])
+			s = '{0} jump to block the ball'.format(player_str)
+		elif len(active_blockers_listed) == 3:
+			player_str = str(active_blockers_listed[0]) + ', ' + str(active_blockers_listed[1]) + ' and ' + str(active_blockers_listed[2])
+			s = '{0} jump to block the ball'.format(player_str)
 		else:
-			b = pos
-			b_player = self.teams[team_id].rotation[b]
-			sl = 3
-			sl_player = self.teams[team_id].rotation[sl]
-			sr = 5
-			sr_player = self.teams[team_id].rotation[sr]
+			print('something has gone horribly wrong')
 
-			blockers = {
-				'mid': {
-					'block_precision': 0,
-					'block_constitution': 0,
-					'block_speed': 0,
-					'block_height': 0
-				},
-				'side-left': {
-					'block_precision': 0,
-					'block_constitution': 0,
-					'block_speed': 0,
-					'block_height': 0
-				},
-				'side-right':
-				{
-					'block_precision': 0,
-					'block_constitution': 0,
-					'block_speed': 0,
-					'block_height': 0
-				}
-			}
+		self.event(s, field=True)
 
-			blockers['mid']['block_precision'] = b_player.stats['block_precision']*0.7 + b_player.stats['reflexes']*0.3 
-			blockers['mid']['block_constitution'] = b_player.stats['constitution']*0.9 + b_player.stats['reflexes']*0.1
-			blockers['mid']['block_speed'] = b_speed(b_player)
-			blockers['mid']['block_height'] = b_player.stats['height'] + b_player.stats['jump']*0.5
+		return [self.block, [team_id, target, pos, active_blockers, ball_precision, ball_strength, ball_speed, ball_intelligence, ball_height]]
 
-			blockers['side-left']['block_precision'] = sl_player.stats['block_precision']*0.7 + sl_player.stats['reflexes']*0.3 
-			blockers['side-left']['block_constitution'] = sl_player.stats['constitution']*0.9 + sl_player.stats['reflexes']*0.1
-			blockers['side-left']['block_speed'] = b_speed(sl_player) - 0.5
-			blockers['side-left']['block_height'] = sl_player.stats['height'] + sl_player.stats['jump']*0.5
 
-			blockers['side-right']['block_precision'] = sr_player.stats['block_precision']*0.7 + sr_player.stats['reflexes']*0.3 
-			blockers['side-right']['block_constitution'] = sr_player.stats['constitution']*0.9 + sr_player.stats['reflexes']*0.1
-			blockers['side-right']['block_speed'] = b_speed(sr_player) - 0.5
-			blockers['side-right']['block_height'] = sr_player.stats['height'] + sr_player.stats['jump']*0.5
+	def block(self, team_id, target, pos, active_blockers, ball_precision, ball_strength, ball_speed, ball_intelligence, ball_height):
+		block_pos = 'side' if pos in [3, 5] else 'mid'
+		active_blockers_value = [p[0] for p in active_blockers]
+		active_blockers_player = [p[1] for p in active_blockers]
+		active_blockers_pos = list(range(3, 5))
+		active_blockers_stats = [p[2] for p in active_blockers]
 
-			positions = ['mid', 'side-left', 'side-right']
+		profit = [(abs(pos - p), p) if active_blockers_value[i] else (abs(pos - p) + 3, p) for i, p in enumerate(active_blockers_pos)]
+		best = max(profit, key=lambda x: x[0])
+		best_pos = profit[profit.index(best)][1]
 
-			if max([blockers[x]['block_speed'] for x in positions]) < ball_speed * 0.3:
-				self.ball = [team_id, target]
-				event('Nobody reacts to block', field=False)
-				return [self.receive, [team_id, target, ball_precision, ball_strength, ball_speed]]
+		if ball_intelligence > 0.6 and ball_precision > 1.6:
+			attack = best_pos - 3
+		elif ball_precision > 1.3:
+			attack = random.randint(0, 2)
+		else:
+			attack = pos - 3
 
-			if ball_intelligence > 0.6 and ball_precision > 1.6:
-				attack = min(positions, key=lambda x: blockers[x]['block_speed'])
-			elif ball_precision > 1.3:
-				attack = random.choice(positions)
-			else:
-				attack = positions[0]
+		blocker_pos = attack + 3
+		blocker_id = attack
 
-			blocker = blockers[attack]
+		p = blocker_id
+		blockers = active_blockers_stats
+		blocker = blockers[p]
 
-			blocker_dict = {'mid':b, 'side-left':sl, 'side-right':sr}
-			blocker_player_id = blocker_dict[attack]
+		blocker_player = self.teams[team_id].rotation[blocker_pos]
 
 		if self.debug:
 			# nobody uses this
@@ -743,54 +815,63 @@ class Match:
 			endstring += f'[Block]\n'
 			endstring += bar('Precision', 1, blockers[p]['block_precision']) + '\n'
 			endstring += bar('Constitution', 0.8, blockers[p]['block_constitution']) + '\n'
-			endstring += bar('Speed', 1, blockers[p]['block_speed']) + '\n'
+			endstring += bar('Speed', 1.6, blockers[p]['block_speed']) + '\n'
 			endstring += bar('Height', 1, blockers[p]['block_height']) + '\n'
 			endstring = endstring[:-1]
 			self.event(endstring, field=False, stat=True)
 
-		blocker_player = self.teams[team_id].rotation[blocker_player_id]
 
-		if blocker['block_speed'] < ball_speed * 0.5:
-			self.ball = [team_id, target]
-			self.event(f'{blocker_player} reacts too late and the spike flies directly over the block', field=False)
+		if active_blockers_value[p] is False:
+			if True in active_blockers_value:
+				active_b = active_blockers_player[active_blockers_value.index(True)]
+				if pos == 4:
+					target = back(pos)
+					target_player = self.teams[team_id].rotation[target]
+					self.ball = [team_id, target, 'receive']
+					self.event(f'The ball flies by {active_b} towards {target_player}')
+					return [self.receive, [team_id, mirror(back(pos)), ball_precision, ball_strength, ball_speed]]
+				elif pos == p:
+					target = back(pos)
+					target_player = self.teams[team_id].rotation[target]
+					self.ball = [team_id, target, 'receive']
+					self.event(f'The ball flies by {active_b} in a straight spike towards {target_player}')
+					return [self.receive, [team_id, back(pos), ball_precision, ball_strength, ball_speed]]
+				else:
+					target = mirror(back(pos))
+					target_player = self.teams[team_id].rotation[target]
+					self.ball = [team_id, target, 'receive']
+					self.event(f'The ball flies by {active_b} in a cross-court spike towards {target_player}')
+					return [self.receive, [team_id, mirror(back(pos)), ball_precision, ball_strength, ball_speed]]
+			else:
+				target = back(random.randint(0, 5))
+				target_player = self.teams[team_id].rotation[target]
+				self.ball = [team_id, target, 'receive']
+				self.event(f'The ball is spiked towards {target_player}')
+
 			return [self.receive, [team_id, target, ball_precision, ball_strength, ball_speed]]
+
 		elif blocker['block_height'] < ball_height * 0.2:
-			self.ball = [team_id, target]
+			self.ball = [team_id, target, 'receive']
 			self.event(f'The spike is too high for {blocker_player} and flies directly over the block', field=False)
 			return [self.receive, [team_id, target, ball_precision, ball_strength, ball_speed]]
-		elif blocker['block_constitution'] < ball_strength * 0.15:
-			self.ball = [team_id, back(pos)]
+		elif blocker['block_constitution'] < ball_strength * 0.1:
+			self.ball = [team_id, back(pos), 'receive']
 			self.event(f'The spike breaks through the block of {blocker_player}', field=False)
 			return [self.receive, [team_id, back(pos), ball_precision+1, ball_strength - blocker['block_constitution']*2, ball_speed+1]]
-		elif blocker['block_height'] < ball_height*0.3 and ball_intelligence < 0.6:
+		elif blocker['block_height'] < ball_height*0.2 and ball_intelligence < 0.6:
 			target = back(pos)
 			target_player = self.teams[team_id].rotation[target]
-			self.ball = [team_id, target]
+			self.ball = [team_id, target, 'receive']
 			self.event(f'The spike ricochets off of the hands of {blocker_player} to {target_player}')
 			return [self.receive, [team_id, target, ball_precision-0.5, ball_strength/3, ball_speed-0.5]]
-		elif blocker['block_height'] < ball_height*0.5:
+		elif blocker['block_height'] < ball_height*0.4:
 			self.event(f'The ball ricochets off of the hands of {blocker_player} into the out')
 			return [self.point, [flip(team_id)]]
-		elif 3*blocker['block_precision'] + blocker['block_speed'] < ball_precision*0.7 + ball_speed*0.7:
-			if attack == 'side':
-				target = back(pos)
-				target_player = self.teams[team_id].rotation[target]
-				self.ball = [team_id, target]
-				self.event(f'The ball flies by {blocker_player} in a straight spike towards {target_player}')
-				return [self.receive, [team_id, back(pos), ball_precision, ball_strength, ball_speed]]
-			elif 'side_left' in positions:
-				target = mirror(back(pos))
-				target_player = self.teams[team_id].rotation[target]
-				self.ball = [team_id, target]
-				self.event(f'The ball flies by {blocker_player} towards {target_player}')
-				return [self.receive, [team_id, mirror(back(pos)), ball_precision, ball_strength, ball_speed]]
-			else:
-				target = mirror(back(pos))
-				target_player = self.teams[team_id].rotation[target]
-				self.ball = [team_id, target]
-				self.event(f'The ball flies by {blocker_player} in a cross-court spike towards {target_player}')
-				return [self.receive, [team_id, mirror(back(pos)), ball_precision, ball_strength, ball_speed]]
 		else:
-			self.ball = [flip(team_id), back(mirror(pos))]
+			self.ball = [flip(team_id), back(mirror(pos)), 'receive']
 			self.event(f'{blocker_player} blocks the ball and it falls back to the other side')
-			return [self.receive, [flip(team_id), back(mirror(pos)), ball_precision+1, ball_strength-0.2, ball_speed+1]]
+			if ball_strength > 0.8:
+				new = back(mirror(pos))
+			else:
+				new = front(mirror(pos))
+			return [self.receive, [flip(team_id), new, ball_precision+1, ball_strength-0.4, ball_speed+1]]
