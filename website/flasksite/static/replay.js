@@ -2,7 +2,7 @@
 url = document.querySelector('#url').innerHTML
 
 game_data = {}
-fetch('/api/replays/' + url)
+fetch('/blolleyball/api/replays/' + url)
   	.then(response => response.json())
   	.then(data => game_data = data['data'])
   	.then(data => render_replay(game_data))

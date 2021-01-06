@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request
 from website.flasksite.util import *
 from website.flasksite import replays
-app = Flask(__name__, static_url_path='/blolleyball/static')
+app = Flask(__name__, static_url_path='/static')
 
 
 @app.route('/')

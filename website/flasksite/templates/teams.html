@@ -30,7 +30,7 @@
 		}
 
 		teams_data = 0
-		fetch('./api/teams')
+		fetch('/blolleyball/api/teams')
   			.then(response => response.json())
   			.then(data => teams_data = data['data'])
 		
