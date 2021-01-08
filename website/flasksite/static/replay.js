@@ -102,7 +102,7 @@ render_replay = function (data) {
     progressCurrent.innerHTML = current_step
 
     let progressEnd = document.querySelector('#progress-end')
-    progressEnd.innerHTML = data.length
+    progressEnd.innerHTML = data.length - 1
 
     let titleDiv = document.querySelector("#title")
     titleDiv.innerHTML = "Blolleyball - " + teams[0] + " vs " + teams[1]
