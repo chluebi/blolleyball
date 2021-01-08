@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request
 from website.flasksite.util import *
 from website.flasksite import replays
 
-url_base = '/blolleyball'
+url_base = ''
 app = Flask(__name__, static_url_path=url_base + '/static')
 
 
