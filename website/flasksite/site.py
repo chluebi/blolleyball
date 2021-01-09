@@ -1,16 +1,17 @@
 from flask import Flask, render_template, url_for, request
 from website.flasksite.util import *
 from website.flasksite import replays
+from util.config_handling import load_config
 
-url_base = ''
+
+config = load_config()
+url_base = config['site']['root']
+
 app = Flask(__name__, static_url_path=url_base + '/static')
-
-
-
 
 @app.route(url_base + '/')
 def home():
-   return render_template('main.html')
+   return render_template('main.html', websocket_url=config['site']['websocket'])
 
 
 @app.route(url_base + '/teams')
@@ -51,4 +52,4 @@ def api_tournament():
 
 
 
-app.run(debug=True, port=37070, host='0.0.0.0')
+app.run(debug=True, port=config['site']['port'], host='localhost')
