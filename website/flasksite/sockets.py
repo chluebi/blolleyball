@@ -3,24 +3,31 @@ import websockets
 import time
 import json
 
-from basegame import basegame
+from util.config_handling import load_config
+
+config = load_config()
+
+last_update = time.time()
 
 ws = []
+DELAY = config['site']['match_tick']
 
-DELAY = 3
+def get_next():
+    with open('data/current.json') as f:
+        data = json.load(f)
+    return data
 
-with open('data/teams/Berlin.json', encoding='utf-8') as f:
-    team1 = basegame.Team.load_team(json.load(f))
-
-with open('data/teams/Netherlands.json', encoding='utf-8') as f:
-    team2 = basegame.Team.load_team(json.load(f))
-
-m = basegame.Match([team1, team2], 2)
-m.debug = False
-m.print = False
-
-events = m.next()
-last_update = time.time()
+def replace_linebreaks(data):
+    for key, value in data.items():
+        if type(value) is dict:
+            data[key] = replace_linebreaks(data[key])
+        elif type(value) is list:
+            data[key] = [e.replace('\n', '<br>') if type(str) is e else e for e in data[key]]
+        elif type(value) is str:
+            data[key] = data[key].replace('\n', '<br>')
+        else:
+            data[key] = data[key]
+    return data
 
 async def match(websocket, path):
     global ws
@@ -37,28 +44,16 @@ async def match(websocket, path):
 
         if time.time() - last_update > DELAY:
             last_update = time.time()
-            events = m.next()
-
-            if m.n is None:
-                events = {'event': 'over'}
-                return
-            elif m.n[0] is None:
-                events = {'event': 'over'}
-                return
+            events = get_next()
+            msg = json.dumps(replace_linebreaks(events))
 
             for i, w in enumerate(ws):
-                events['event'] = 'match'
-                for key, value in events.items():
-                    if type(value) is str:
-                        events[key] = value.replace('\n', '<br>')
-
-                msg = json.dumps(events)
                 try:
                     await w.send(msg)
                 except:
                     ws.remove(w)
 
-start_server = websockets.serve(match, "0.0.0.0", 36960)
+start_server = websockets.serve(match, 'localhost', config['site']['websocket_port'])
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
