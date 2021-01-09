@@ -1,7 +1,7 @@
 {
-	"root":"/blolleyball",
+	"root":"",
 	"port": 37070,
-	"websocket":"ws://localhost:36960",
+	"websocket":"ws://chluebi.com/websockets",
 	"websocket_port":36960,
 	"match_tick":3
 }
