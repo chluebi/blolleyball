@@ -59,7 +59,7 @@ def random_match():
 
 
 
-schedule.every().day.at('17:50').do(random_match)
+schedule.every().day.at('19:00').do(random_match)
 
 while True:
     schedule.run_pending()
