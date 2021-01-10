@@ -1,1 +1,1 @@
-from util import config_handling
+from util import test_game

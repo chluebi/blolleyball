@@ -1,4 +1,119 @@
 {
     "name": "\ud83e\ude81 Catalonian Kites",
-    "players": []
+    "players": [
+        {
+            "name": "Sibren Veenhuis",
+            "stats": {
+                "height": 0.6361335659502433,
+                "constitution": 0.8148159925236241,
+                "agility": 0.772318387606988,
+                "jump": 0.02651957676221218,
+                "intelligence": 0.8277380882572918,
+                "reflexes": 0.2075392850035562,
+                "serve_strength": 0.5870307312877814,
+                "serve_precision": 0.9305740373379163,
+                "spike_strength": 0.5811490309099939,
+                "spike_precision": 0.49382614194165486,
+                "overhand_strength": 0.6486778309118217,
+                "overhand_precision": 0.14938787361039596,
+                "dig_precision": 0.2521095380940955,
+                "block_precision": 0.1496752792921131
+            }
+        },
+        {
+            "name": "Angel Pumpblock",
+            "stats": {
+                "height": 0.3367242663331929,
+                "constitution": 0.5038670806271759,
+                "agility": 0.03919358104748457,
+                "jump": 0.30191324730108793,
+                "intelligence": 0.18540972823367188,
+                "reflexes": 0.018370319114469756,
+                "serve_strength": 0.15278020341976734,
+                "serve_precision": 0.4772635196645182,
+                "spike_strength": 0.0920112210986462,
+                "spike_precision": 0.4122048682141771,
+                "overhand_strength": 0.02163041217774607,
+                "overhand_precision": 0.5588788444567634,
+                "dig_precision": 0.11656156322933606,
+                "block_precision": 0.09775987103562847
+            }
+        },
+        {
+            "name": "Violet Froid",
+            "stats": {
+                "height": 0.19379724121227465,
+                "constitution": 0.24979183736294625,
+                "agility": 0.018638327658795962,
+                "jump": 0.2715126282468026,
+                "intelligence": 0.26772964049490583,
+                "reflexes": 0.23730225387892728,
+                "serve_strength": 0.13526253347176984,
+                "serve_precision": 0.2827893244560714,
+                "spike_strength": 0.17962602444432235,
+                "spike_precision": 0.3303645669863087,
+                "overhand_strength": 0.1374371214910512,
+                "overhand_precision": 0.21572305555575078,
+                "dig_precision": 0.3208636483517039,
+                "block_precision": 0.3325329278969071
+            }
+        },
+        {
+            "name": "Brodir Jonsson",
+            "stats": {
+                "height": 0.29596923222394356,
+                "constitution": 0.7959912542192502,
+                "agility": 0.14481922753390933,
+                "jump": 0.29365307922945755,
+                "intelligence": 0.2496642450468959,
+                "reflexes": 0.568557138891079,
+                "serve_strength": 1.1245831682263554,
+                "serve_precision": 0.29646987636302696,
+                "spike_strength": 0.8124127715722814,
+                "spike_precision": 0.2476061792098242,
+                "overhand_strength": 0.7581900436174815,
+                "overhand_precision": 0.9447097460062572,
+                "dig_precision": 0.5206725239905851,
+                "block_precision": 0.7704097350526142
+            }
+        },
+        {
+            "name": "Royal Mandrake",
+            "stats": {
+                "height": 1.321181558459433,
+                "constitution": 0.9396860829464784,
+                "agility": 0.04129365973301323,
+                "jump": 0.14286633461792897,
+                "intelligence": 1.1004130283581037,
+                "reflexes": 0.04415320427135875,
+                "serve_strength": 0.7109870059701164,
+                "serve_precision": 1.2446066455537406,
+                "spike_strength": 0.1614762210838685,
+                "spike_precision": 0.6649655822761104,
+                "overhand_strength": 1.3639181559300506,
+                "overhand_precision": 1.0401751145013862,
+                "dig_precision": 1.4437204568707287,
+                "block_precision": 0.9921134635706739
+            }
+        },
+        {
+            "name": "Pink Mechanical",
+            "stats": {
+                "height": 0.04559874958354285,
+                "constitution": 1.1154634548281748,
+                "agility": 1.0974870293408503,
+                "jump": 0.1447194237085147,
+                "intelligence": 0.3983122728303524,
+                "reflexes": 1.0045590993989606,
+                "serve_strength": 1.1184570620986019,
+                "serve_precision": 1.098283035244788,
+                "spike_strength": 0.1879542269976478,
+                "spike_precision": 0.845892012730281,
+                "overhand_strength": 0.48858728556196807,
+                "overhand_precision": 0.9510799000217469,
+                "dig_precision": 0.48899803286604504,
+                "block_precision": 0.41390846251068414
+            }
+        }
+    ]
 }

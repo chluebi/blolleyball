@@ -1,4 +1,119 @@
 {
     "name": "\u26d3\ufe0f Rio Chains",
-    "players": []
+    "players": [
+        {
+            "name": "Rock Singlefizz",
+            "stats": {
+                "height": 1.0394935645350263,
+                "constitution": 0.07777844057598575,
+                "agility": 0.26021380723088244,
+                "jump": 0.23549086773237687,
+                "intelligence": 0.5709329596035748,
+                "reflexes": 0.3942425530721681,
+                "serve_strength": 0.3133697634947484,
+                "serve_precision": 0.5892054573700777,
+                "spike_strength": 0.40980093944208784,
+                "spike_precision": 1.0012904645221765,
+                "overhand_strength": 0.7590300415632674,
+                "overhand_precision": 0.7930364651684862,
+                "dig_precision": 0.5099415148093035,
+                "block_precision": 0.5043125542729342
+            }
+        },
+        {
+            "name": "Tretan Boradil",
+            "stats": {
+                "height": 0.34024540946848014,
+                "constitution": 0.3459401292055345,
+                "agility": 0.39386598175251586,
+                "jump": 0.40466782622803277,
+                "intelligence": 1.1385975083190376,
+                "reflexes": 0.3257519376690999,
+                "serve_strength": 1.140565818562177,
+                "serve_precision": 0.35484104114298615,
+                "spike_strength": 0.858435791869345,
+                "spike_precision": 0.881025493007003,
+                "overhand_strength": 0.02623353767033236,
+                "overhand_precision": 0.3142962210733193,
+                "dig_precision": 1.0628132524716736,
+                "block_precision": 0.6565549098596527
+            }
+        },
+        {
+            "name": "Gacco Bi",
+            "stats": {
+                "height": 0.23238176605412703,
+                "constitution": 0.08309699444959501,
+                "agility": 0.1343083514328409,
+                "jump": 0.24113621992235212,
+                "intelligence": 0.020019903454847495,
+                "reflexes": 0.20071483283547042,
+                "serve_strength": 0.2916690732416821,
+                "serve_precision": 0.5183313905732746,
+                "spike_strength": 0.035712609467487985,
+                "spike_precision": 0.38277735403975915,
+                "overhand_strength": 0.04942325393442272,
+                "overhand_precision": 0.4549233011460734,
+                "dig_precision": 0.4503269651207955,
+                "block_precision": 0.04523379159056543
+            }
+        },
+        {
+            "name": "Hill Gnill",
+            "stats": {
+                "height": 0.8803927505674843,
+                "constitution": 0.18842233586928192,
+                "agility": 0.06469781225448118,
+                "jump": 0.3991616825965524,
+                "intelligence": 0.48001960838240665,
+                "reflexes": 0.23477377113727943,
+                "serve_strength": 0.9870063337267949,
+                "serve_precision": 0.16148206730069856,
+                "spike_strength": 0.31006083205449686,
+                "spike_precision": 0.2657259784996704,
+                "overhand_strength": 0.7196166436294231,
+                "overhand_precision": 0.4535018289272132,
+                "dig_precision": 0.9463429967510331,
+                "block_precision": 0.3738157875429279
+            }
+        },
+        {
+            "name": "Bobby Solver",
+            "stats": {
+                "height": 0.25954783358220446,
+                "constitution": 1.1643638866717814,
+                "agility": 0.7319456103417976,
+                "jump": 0.8991091158318874,
+                "intelligence": 0.16396930994712375,
+                "reflexes": 0.5356499326494116,
+                "serve_strength": 0.6506486884240743,
+                "serve_precision": 1.0652040487172707,
+                "spike_strength": 0.103678588657771,
+                "spike_precision": 0.30956522517236496,
+                "overhand_strength": 0.29897217945591686,
+                "overhand_precision": 0.25216603867004356,
+                "dig_precision": 0.41020117799769856,
+                "block_precision": 0.37393068867299706
+            }
+        },
+        {
+            "name": "Brown Cobra",
+            "stats": {
+                "height": 1.0247353624101183,
+                "constitution": 0.692066378882489,
+                "agility": 0.7467932039546867,
+                "jump": 0.2908719258183646,
+                "intelligence": 0.18921051587973925,
+                "reflexes": 0.34237203370445624,
+                "serve_strength": 0.9785869743630939,
+                "serve_precision": 0.8115861878156002,
+                "spike_strength": 0.8336211815451335,
+                "spike_precision": 0.8863834382371445,
+                "overhand_strength": 0.6019964729959658,
+                "overhand_precision": 0.5219156068720064,
+                "dig_precision": 0.660018126180762,
+                "block_precision": 0.893839778352761
+            }
+        }
+    ]
 }

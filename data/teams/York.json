@@ -1,4 +1,119 @@
 {
     "name": "\ud83c\udf88 York Ballons",
-    "players": []
+    "players": [
+        {
+            "name": "Charles Magnus",
+            "stats": {
+                "height": 0.39914988996919565,
+                "constitution": 0.6344411664101318,
+                "agility": 0.6042130001628395,
+                "jump": 0.31958281423113344,
+                "intelligence": 0.22909830529771016,
+                "reflexes": 0.6123477002572554,
+                "serve_strength": 0.007069844738969912,
+                "serve_precision": 0.4064201949441529,
+                "spike_strength": 0.6369475906753443,
+                "spike_precision": 0.7205140299118722,
+                "overhand_strength": 0.011109821436466636,
+                "overhand_precision": 0.5053830546812794,
+                "dig_precision": 0.5730042310590668,
+                "block_precision": 0.5540861048874616
+            }
+        },
+        {
+            "name": "Theodore Singlefizz",
+            "stats": {
+                "height": 0.12730904256622755,
+                "constitution": 0.29571174601151623,
+                "agility": 0.0851233885931517,
+                "jump": 0.6720720138832398,
+                "intelligence": 0.6710177910456093,
+                "reflexes": 0.3174454396849925,
+                "serve_strength": 0.27447507727968684,
+                "serve_precision": 0.15592640060928895,
+                "spike_strength": 0.003002213186232026,
+                "spike_precision": 0.09022547986489295,
+                "overhand_strength": 0.20021080156731585,
+                "overhand_precision": 0.04735776916904174,
+                "dig_precision": 0.1690922187088692,
+                "block_precision": 0.3143315474290054
+            }
+        },
+        {
+            "name": "First Pumpblock",
+            "stats": {
+                "height": 0.2126200596215819,
+                "constitution": 0.15292834197751895,
+                "agility": 1.4699445471727832,
+                "jump": 1.7307510598242557,
+                "intelligence": 0.39358509435067046,
+                "reflexes": 1.0221363102011276,
+                "serve_strength": 0.9946549463065572,
+                "serve_precision": 0.3719292800602405,
+                "spike_strength": 0.7624018377417693,
+                "spike_precision": 0.2249974762463034,
+                "overhand_strength": 0.9419411090529983,
+                "overhand_precision": 1.157396574577847,
+                "dig_precision": 1.2203572929125983,
+                "block_precision": 0.11987102829944199
+            }
+        },
+        {
+            "name": "Gifted Caelvu",
+            "stats": {
+                "height": 0.1291827196301994,
+                "constitution": 0.03045283571712955,
+                "agility": 0.06759747443618275,
+                "jump": 0.21127930958845254,
+                "intelligence": 0.48175723330316683,
+                "reflexes": 0.40840243958112543,
+                "serve_strength": 0.5407260187078747,
+                "serve_precision": 0.02190136133278347,
+                "spike_strength": 0.47613030904007425,
+                "spike_precision": 0.5527689869590745,
+                "overhand_strength": 0.31174121656543635,
+                "overhand_precision": 0.6208060241399354,
+                "dig_precision": 0.7047266583450827,
+                "block_precision": 0.07479702447558977
+            }
+        },
+        {
+            "name": "Ed Cat",
+            "stats": {
+                "height": 0.11060756672943277,
+                "constitution": 0.3553765421831062,
+                "agility": 0.8482160172293224,
+                "jump": 0.0869480308325698,
+                "intelligence": 0.9242826480973098,
+                "reflexes": 0.07190731924623364,
+                "serve_strength": 0.5268516288171043,
+                "serve_precision": 0.8714280558249567,
+                "spike_strength": 0.029872587366863494,
+                "spike_precision": 0.12830285040391767,
+                "overhand_strength": 0.7505799976050587,
+                "overhand_precision": 0.36923234693353146,
+                "dig_precision": 0.4610696052044056,
+                "block_precision": 0.8166189485829133
+            }
+        },
+        {
+            "name": "Caspian Lyn",
+            "stats": {
+                "height": 0.9131005304976155,
+                "constitution": 1.2546001961704658,
+                "agility": 0.9091335626929431,
+                "jump": 1.2920445037983082,
+                "intelligence": 1.0239016355165307,
+                "reflexes": 0.22024820975449533,
+                "serve_strength": 0.4478943520620522,
+                "serve_precision": 0.031723653820460156,
+                "spike_strength": 0.7061016723033852,
+                "spike_precision": 0.9354705385054785,
+                "overhand_strength": 1.1645128847066235,
+                "overhand_precision": 0.2246350648178787,
+                "dig_precision": 0.8802778046083071,
+                "block_precision": 0.6006079972589848
+            }
+        }
+    ]
 }

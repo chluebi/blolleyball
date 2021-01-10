@@ -1,4 +1,119 @@
 {
     "name": "\ud83d\udd0b Sun City Batteries",
-    "players": []
+    "players": [
+        {
+            "name": "Guinevere Finebell",
+            "stats": {
+                "height": 0.6684521125218358,
+                "constitution": 0.15077930132741818,
+                "agility": 0.033738293976533135,
+                "jump": 0.5201983728914739,
+                "intelligence": 0.7287746207624999,
+                "reflexes": 0.489368803265006,
+                "serve_strength": 0.6108008470068399,
+                "serve_precision": 0.11201892735908694,
+                "spike_strength": 0.6240486374213197,
+                "spike_precision": 0.06509029437424255,
+                "overhand_strength": 0.2746784531818958,
+                "overhand_precision": 0.6982421213330148,
+                "dig_precision": 0.5013263567463875,
+                "block_precision": 0.03736757795602489
+            }
+        },
+        {
+            "name": "Jon Solver",
+            "stats": {
+                "height": 0.3688355306179748,
+                "constitution": 0.019694794425838387,
+                "agility": 0.18995254972135783,
+                "jump": 0.13537326060537105,
+                "intelligence": 0.40756089487204405,
+                "reflexes": 0.31063388064330366,
+                "serve_strength": 0.9257313774484799,
+                "serve_precision": 0.4031915649284694,
+                "spike_strength": 0.3533814750375519,
+                "spike_precision": 0.2345866193473632,
+                "overhand_strength": 0.7450113684514167,
+                "overhand_precision": 0.47786324754096837,
+                "dig_precision": 0.6525590692363707,
+                "block_precision": 0.5317966306259455
+            }
+        },
+        {
+            "name": "Ayla Wall",
+            "stats": {
+                "height": 0.06995232525567843,
+                "constitution": 0.02708887613768595,
+                "agility": 1.0518338705361325,
+                "jump": 1.164053010043197,
+                "intelligence": 0.11938934006279632,
+                "reflexes": 0.7977573520407987,
+                "serve_strength": 0.3990808016089906,
+                "serve_precision": 0.1202728218454019,
+                "spike_strength": 1.577043727683167,
+                "spike_precision": 0.3081024305450536,
+                "overhand_strength": 0.6952694881587697,
+                "overhand_precision": 1.1422949822833286,
+                "dig_precision": 1.4012748803454305,
+                "block_precision": 0.44383334034900174
+            }
+        },
+        {
+            "name": "Lindsay Chalice",
+            "stats": {
+                "height": 0.3280044297237773,
+                "constitution": 0.03883321820076442,
+                "agility": 0.7407181402212156,
+                "jump": 0.19903213701709352,
+                "intelligence": 0.9359027527350141,
+                "reflexes": 0.04555140029169815,
+                "serve_strength": 0.01583014785975842,
+                "serve_precision": 0.7613920040829351,
+                "spike_strength": 0.6122520956617287,
+                "spike_precision": 1.023661756813709,
+                "overhand_strength": 0.20131186052455213,
+                "overhand_precision": 0.9994353503417603,
+                "dig_precision": 0.5964839109838637,
+                "block_precision": 0.7667030237005343
+            }
+        },
+        {
+            "name": "Hegel Beans",
+            "stats": {
+                "height": 0.11295797451766407,
+                "constitution": 0.798818627513311,
+                "agility": 0.15029430109217873,
+                "jump": 0.2704987299305075,
+                "intelligence": 0.4910717668483619,
+                "reflexes": 0.23100079278926947,
+                "serve_strength": 0.2999915426319019,
+                "serve_precision": 0.16667671939278766,
+                "spike_strength": 0.9055776753682249,
+                "spike_precision": 0.709614792668329,
+                "overhand_strength": 0.7369389662104208,
+                "overhand_precision": 0.4515488129851452,
+                "dig_precision": 0.6215057545463099,
+                "block_precision": 0.7725216392827883
+            }
+        },
+        {
+            "name": "Elbiranth IV",
+            "stats": {
+                "height": 0.8109635756122688,
+                "constitution": 0.3425768736166556,
+                "agility": 0.1869069023514509,
+                "jump": 0.5644113749429593,
+                "intelligence": 0.885161695760683,
+                "reflexes": 0.6881252251649993,
+                "serve_strength": 0.2734159587144542,
+                "serve_precision": 0.61254228565819,
+                "spike_strength": 0.9302063625328728,
+                "spike_precision": 0.6304048479365493,
+                "overhand_strength": 0.6947978952788441,
+                "overhand_precision": 0.06607801442005296,
+                "dig_precision": 0.7310182885872702,
+                "block_precision": 0.010956144965677468
+            }
+        }
+    ]
 }

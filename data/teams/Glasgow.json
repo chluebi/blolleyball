@@ -2,117 +2,117 @@
     "name": "\ud83c\udf73 Glasgow Pans",
     "players": [
         {
-            "name": "Violet Froid",
+            "name": "Melon Beaver",
             "stats": {
-                "height": 1.3675792388048653,
-                "constitution": 0.8499870524648202,
-                "agility": 1.0158578706827632,
-                "jump": 0.24042580319905263,
-                "intelligence": 1.452827056626778,
-                "reflexes": 0.4837602813536569,
-                "serve_strength": 1.1367934009893537,
-                "serve_precision": 1.451973062509235,
-                "spike_strength": 0.3510269350188291,
-                "spike_precision": 0.345073581626508,
-                "overhand_strength": 0.12303637963125036,
-                "overhand_precision": 0.024449641392068084,
-                "dig_precision": 1.4110674760365587,
-                "block_precision": 0.6115742174064357
-            }
-        },
-        {
-            "name": "Syllia Umeris",
-            "stats": {
-                "height": 0.8849526876058885,
-                "constitution": 0.06648290023271415,
-                "agility": 0.4817013369902353,
-                "jump": 0.6288465070996037,
-                "intelligence": 0.8063793933472019,
-                "reflexes": 0.5839759085422784,
-                "serve_strength": 0.24611446425741398,
-                "serve_precision": 0.6455187583271064,
-                "spike_strength": 0.42702840481388177,
-                "spike_precision": 0.6815084684591948,
-                "overhand_strength": 0.39718732354608305,
-                "overhand_precision": 0.6874675419908084,
-                "dig_precision": 1.0399505392119381,
-                "block_precision": 0.10095813422765469
-            }
-        },
-        {
-            "name": "Shady Angel",
-            "stats": {
-                "height": 0.06893976992702695,
-                "constitution": 0.07251647370359432,
-                "agility": 0.15559628975259968,
-                "jump": 0.3895496606751107,
-                "intelligence": 0.5687994936754449,
-                "reflexes": 0.5822585541805182,
-                "serve_strength": 0.38087381829966505,
-                "serve_precision": 0.2643218200716726,
-                "spike_strength": 0.37254748825511397,
-                "spike_precision": 0.16902785115355137,
-                "overhand_strength": 0.6033547308381327,
-                "overhand_precision": 0.0009071347302971566,
-                "dig_precision": 0.2030687739077687,
-                "block_precision": 0.14598371451928893
-            }
-        },
-        {
-            "name": "Nymph Wynter",
-            "stats": {
-                "height": 0.5507536523683968,
-                "constitution": 0.01850407477537842,
-                "agility": 0.09298531570500962,
-                "jump": 0.6618050071956526,
-                "intelligence": 0.18145248756015853,
-                "reflexes": 0.029460340458717926,
-                "serve_strength": 0.06967277850451974,
-                "serve_precision": 0.047677917277683085,
-                "spike_strength": 0.5750068396412701,
-                "spike_precision": 0.014648201364957768,
-                "overhand_strength": 0.40681557247919176,
-                "overhand_precision": 0.6632334525036196,
-                "dig_precision": 0.5585789174217333,
-                "block_precision": 0.5907002190953365
-            }
-        },
-        {
-            "name": "Liang Huan",
-            "stats": {
-                "height": 0.8307765637409346,
-                "constitution": 0.4684407195746115,
-                "agility": 0.4287093577508029,
-                "jump": 0.813535001706187,
-                "intelligence": 0.5798633652567139,
-                "reflexes": 0.707309379275319,
-                "serve_strength": 0.40672724750009115,
-                "serve_precision": 0.4194461556092266,
-                "spike_strength": 0.15011305270009187,
-                "spike_precision": 0.7040811997049704,
-                "overhand_strength": 0.7585471817607949,
-                "overhand_precision": 0.888706090608223,
-                "dig_precision": 0.16686343738474685,
-                "block_precision": 0.6265133313507656
+                "height": 0.7823342664372988,
+                "constitution": 0.2513664568749961,
+                "agility": 0.6949813270450146,
+                "jump": 0.5681167838314748,
+                "intelligence": 0.46688444002450635,
+                "reflexes": 0.13878518455158928,
+                "serve_strength": 0.839594641502975,
+                "serve_precision": 0.3353675829598019,
+                "spike_strength": 0.5209663094398006,
+                "spike_precision": 0.3047312061390621,
+                "overhand_strength": 0.6800526541677816,
+                "overhand_precision": 0.8210070182841708,
+                "dig_precision": 0.05675183094899903,
+                "block_precision": 0.06838134287515024
             }
         },
         {
             "name": "Skeletal Curator",
             "stats": {
-                "height": 0.7069458347279198,
-                "constitution": 0.544525073388673,
-                "agility": 1.0077472195394106,
-                "jump": 0.3625242839734286,
-                "intelligence": 0.7000178500850869,
-                "reflexes": 0.887863383227763,
-                "serve_strength": 0.19377285642189485,
-                "serve_precision": 0.2891788802500844,
-                "spike_strength": 0.4128565060599774,
-                "spike_precision": 0.8166196621523707,
-                "overhand_strength": 0.009497680569660542,
-                "overhand_precision": 0.7690851845139615,
-                "dig_precision": 0.28336946903256394,
-                "block_precision": 0.08381931569813268
+                "height": 0.2533980082214349,
+                "constitution": 0.4816641891423449,
+                "agility": 0.042852613984592995,
+                "jump": 0.09463245915009535,
+                "intelligence": 0.39093079176156526,
+                "reflexes": 0.46057872551644213,
+                "serve_strength": 0.5956789003896783,
+                "serve_precision": 0.3834394525305528,
+                "spike_strength": 0.32465750105112473,
+                "spike_precision": 0.02238627364812721,
+                "overhand_strength": 0.25895636953145923,
+                "overhand_precision": 0.36931280196966376,
+                "dig_precision": 0.4066556170524838,
+                "block_precision": 0.5704553297567696
+            }
+        },
+        {
+            "name": "Kinesh Freiburg",
+            "stats": {
+                "height": 0.985762642685331,
+                "constitution": 0.7013182045010012,
+                "agility": 0.4255991780352477,
+                "jump": 1.1666744310653043,
+                "intelligence": 0.49024890963836426,
+                "reflexes": 0.8028710782099766,
+                "serve_strength": 0.2560575489654823,
+                "serve_precision": 0.4597143505565961,
+                "spike_strength": 0.35336830654728013,
+                "spike_precision": 0.9608563417541157,
+                "overhand_strength": 0.28939134167460545,
+                "overhand_precision": 1.0008763771437548,
+                "dig_precision": 0.00895054025235179,
+                "block_precision": 1.2137859390881172
+            }
+        },
+        {
+            "name": "Chaos Fade",
+            "stats": {
+                "height": 1.120766412122899,
+                "constitution": 1.3861426788083857,
+                "agility": 1.4163325043943282,
+                "jump": 0.6866155096827331,
+                "intelligence": 1.0225416945971109,
+                "reflexes": 0.36465275094980654,
+                "serve_strength": 0.2112929060774706,
+                "serve_precision": 0.8840926842373489,
+                "spike_strength": 0.3591381561785006,
+                "spike_precision": 0.5728143174253414,
+                "overhand_strength": 0.23668863383591093,
+                "overhand_precision": 0.5915212759383484,
+                "dig_precision": 0.31542039869326044,
+                "block_precision": 1.31823223479759
+            }
+        },
+        {
+            "name": "No\u00ebl Clair",
+            "stats": {
+                "height": 0.20216757645838102,
+                "constitution": 0.42411114501312797,
+                "agility": 0.12501145868074653,
+                "jump": 1.581429741974568,
+                "intelligence": 0.35569199994079403,
+                "reflexes": 0.10751926066973266,
+                "serve_strength": 0.5195538861728123,
+                "serve_precision": 0.6577118956735603,
+                "spike_strength": 1.252112268178162,
+                "spike_precision": 1.3149809113376603,
+                "overhand_strength": 0.5064507359890269,
+                "overhand_precision": 0.835857696452692,
+                "dig_precision": 0.4206574884538973,
+                "block_precision": 0.5629895153224643
+            }
+        },
+        {
+            "name": "Siaphas XIV",
+            "stats": {
+                "height": 0.04726016074787425,
+                "constitution": 0.09606532427219701,
+                "agility": 0.08119491760968411,
+                "jump": 0.29316463987891306,
+                "intelligence": 0.1397527568245159,
+                "reflexes": 0.14299040094539414,
+                "serve_strength": 0.08063399098269365,
+                "serve_precision": 0.2209067666498664,
+                "spike_strength": 0.019015909345659863,
+                "spike_precision": 0.36276598527643644,
+                "overhand_strength": 0.12896070617929012,
+                "overhand_precision": 0.0305988674839092,
+                "dig_precision": 0.3609041795200432,
+                "block_precision": 0.34289238732038585
             }
         }
     ]
