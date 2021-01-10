@@ -102,7 +102,7 @@ def advance_tournament():
 				pass
 
 
-schedule.every().day.at('17:54').do(advance_tournament)
+schedule.every().day.at('19:00').do(advance_tournament)
 
 while True:
     schedule.run_pending()
