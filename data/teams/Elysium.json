@@ -1,4 +1,119 @@
 {
     "name": "\ud83e\udd8a Elysium Foxes",
-    "players": []
+    "players": [
+        {
+            "name": "Eren Bear",
+            "stats": {
+                "height": 0.015038061587088198,
+                "constitution": 0.9914968566389804,
+                "agility": 0.6898041541742423,
+                "jump": 0.07516114017434238,
+                "intelligence": 0.663447409673165,
+                "reflexes": 0.3833289362163183,
+                "serve_strength": 0.2636410102803663,
+                "serve_precision": 0.6067041204504278,
+                "spike_strength": 1.1630106503111706,
+                "spike_precision": 0.27568430018352824,
+                "overhand_strength": 0.7315053129863287,
+                "overhand_precision": 0.7305219416561392,
+                "dig_precision": 0.24468610908583216,
+                "block_precision": 0.8193678233798766
+            }
+        },
+        {
+            "name": "Xypais Purple",
+            "stats": {
+                "height": 1.008726142725029,
+                "constitution": 0.5800252936660154,
+                "agility": 0.13442773822161752,
+                "jump": 0.04634099067581066,
+                "intelligence": 0.6980625226626391,
+                "reflexes": 0.3878937085688108,
+                "serve_strength": 0.32597508763931204,
+                "serve_precision": 0.21721162123518764,
+                "spike_strength": 0.7458892670610417,
+                "spike_precision": 1.0415574414203979,
+                "overhand_strength": 0.5113189900643156,
+                "overhand_precision": 0.5722986850993714,
+                "dig_precision": 0.38169001031366134,
+                "block_precision": 0.895692123432749
+            }
+        },
+        {
+            "name": "Wraith Tustran",
+            "stats": {
+                "height": 1.0098248704624377,
+                "constitution": 0.36941965795924847,
+                "agility": 0.166473438518646,
+                "jump": 0.11059258907682128,
+                "intelligence": 0.9227994172100834,
+                "reflexes": 0.6552334949458628,
+                "serve_strength": 0.5151442680785677,
+                "serve_precision": 0.9057466657828284,
+                "spike_strength": 0.8785887347256467,
+                "spike_precision": 0.10119878374407612,
+                "overhand_strength": 1.0119583771460632,
+                "overhand_precision": 0.5749284109393086,
+                "dig_precision": 0.5808147916602892,
+                "block_precision": 0.8313673204618672
+            }
+        },
+        {
+            "name": "Bri Caelvu",
+            "stats": {
+                "height": 0.19180512092701882,
+                "constitution": 0.08098576299903931,
+                "agility": 0.36934700381107055,
+                "jump": 0.08762645579638541,
+                "intelligence": 0.7022971834965347,
+                "reflexes": 0.20685222902332684,
+                "serve_strength": 0.6426932690483811,
+                "serve_precision": 0.4015619955938138,
+                "spike_strength": 0.14403078516018986,
+                "spike_precision": 0.21158592089739797,
+                "overhand_strength": 0.48983021600289606,
+                "overhand_precision": 0.070282746120861,
+                "dig_precision": 0.4286117332269363,
+                "block_precision": 0.6949910829039879
+            }
+        },
+        {
+            "name": "Garfield Caelvu",
+            "stats": {
+                "height": 0.5100916585235703,
+                "constitution": 0.6631159004598665,
+                "agility": 0.12193426488796708,
+                "jump": 0.1444265240217451,
+                "intelligence": 0.8586453272707446,
+                "reflexes": 0.7359319728439683,
+                "serve_strength": 0.2885951031668519,
+                "serve_precision": 0.6041973782607902,
+                "spike_strength": 0.034998763474706755,
+                "spike_precision": 0.532236885493748,
+                "overhand_strength": 0.7414018111543512,
+                "overhand_precision": 0.10557366946867613,
+                "dig_precision": 0.030081427210263773,
+                "block_precision": 0.38845892576241436
+            }
+        },
+        {
+            "name": "Adam Avenger",
+            "stats": {
+                "height": 0.5981033935749869,
+                "constitution": 1.0680842169018476,
+                "agility": 0.4148133162792165,
+                "jump": 0.44605014186944597,
+                "intelligence": 0.5352149474188416,
+                "reflexes": 0.07421703101400494,
+                "serve_strength": 0.5130622013580597,
+                "serve_precision": 0.8657060389846886,
+                "spike_strength": 0.04732006869831577,
+                "spike_precision": 0.5891740604389376,
+                "overhand_strength": 0.8393586195231729,
+                "overhand_precision": 0.10115240426458365,
+                "dig_precision": 0.683314394152914,
+                "block_precision": 0.9076397782179624
+            }
+        }
+    ]
 }
