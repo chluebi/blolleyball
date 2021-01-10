@@ -179,6 +179,9 @@ def back(x):
 class Match:
 
 	def __init__(self, teams, win_sets):
+		self.game = True
+		self.winner = None
+
 		self.teams = teams
 		self.win_sets = win_sets
 
@@ -198,7 +201,10 @@ class Match:
 					'touches': 0}
 
 	def next(self):
-		self.n = self.n[0](*self.n[1])
+		if self.n[0] is None:
+			self.game = False
+		else:
+			self.n = self.n[0](*self.n[1])
 		last = self.last.copy()
 
 		last['set_score'] = self.set_score
@@ -465,12 +471,13 @@ class Match:
 		else:
 			if self.score[-1][team_id] > 24 and self.score[-1][team_id] > self.score[-1][flip(team_id)] + 1:
 				if self.set_score[team_id]+1 < self.win_sets:
-					self.event(f'{team} has won set #{self.set_count}: {self.score[-1][0]}-{self.score[-1][1]}')
+					self.event(f'{team} have won set #{self.set_count}: {self.score[-1][0]}-{self.score[-1][1]}')
 					self.set_score[team_id] += 1
 					return [self.start_set, []]
 				else:
 					self.set_score[team_id] += 1
-					self.event('{0} has won the match!\n[{2[0]}-{2[1]}]\n{1}'.format(team, '\n'.join([f'{i}:{j}' for i, j in self.score]), self.set_score))
+					self.event('{0} have won the match!\n[{2[0]}-{2[1]}]\n{1}'.format(team, '\n'.join([f'{i}:{j}' for i, j in self.score]), self.set_score))
+					self.winner = team
 					return [self.end_game, []]
 			else:
 				self.event(f'Set #{self.set_count}: {self.score[-1][0]}-{self.score[-1][1]}')
@@ -885,11 +892,11 @@ class Match:
 
 		elif blocker['block_height'] < ball_height * 0.2:
 			self.ball = [team_id, target, 'receive']
-			self.event(f'The spike is too high for {blocker_player} and flies directly over the block', field=False)
+			self.event(f'The spike is too high for {blocker_player} and flies directly over the block')
 			return [self.receive, [team_id, target, ball_precision, ball_strength, ball_speed]]
 		elif blocker['block_constitution'] < ball_strength * 0.1:
 			self.ball = [team_id, back(pos), 'receive']
-			self.event(f'The spike breaks through the block of {blocker_player}', field=False)
+			self.event(f'The spike breaks through the block of {blocker_player}')
 			return [self.receive, [team_id, back(pos), ball_precision+1, ball_strength - blocker['block_constitution']*2, ball_speed+1]]
 		elif blocker['block_height'] < ball_height*0.2 and ball_intelligence < 0.6:
 			target = back(pos)

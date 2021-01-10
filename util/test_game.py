@@ -18,5 +18,9 @@ with open('data/replays/tests/Berlin_Keys_vs_Netherland_Ghasts', 'w+') as f:
 
 for i in range(1000000):
 	events = m.next()
+
 	with open('data/replays/tests/Berlin_Keys_vs_Netherland_Ghasts', 'a+') as f:
 		f.write(json.dumps(events) + '\n')
+
+	if m.game is False:
+		break
