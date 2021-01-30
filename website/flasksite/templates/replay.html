@@ -106,8 +106,8 @@
 			current_step += 1
 			}
 			render_replay(game_data)
-			setTimeout(play_next, 3000/(speeds[currentSpeed]))
 		}
+		setTimeout(play_next, 3000/(speeds[currentSpeed]))
 	}
 
 	backToStart = function () {
@@ -130,7 +130,6 @@
 		let playButton = document.querySelector('#play')
 		if (playing) {
 			playButton.innerHTML = '⏸️'
-			play_next()
 		}
 		else {
 			playButton.innerHTML = '▶️'
@@ -316,5 +315,7 @@
 	    url += '?t=' + current_step
 	    shareField.value = url
 	}
+
+	play_next()
 	</script>
 {% endblock content %}
