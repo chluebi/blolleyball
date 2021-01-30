@@ -29,6 +29,15 @@
 		<a id="forward-to-end" class="bordered buttoned" onclick="forwardToEnd()">
 			⏭️
 		</a>
+		<a id="speed-down" class="bordered buttoned" onclick="speedDown()">
+			<<
+		</a>
+		<div id=speed-value class="bordered buttoned" onclick="resetSpeed()">
+			1x
+		</div>
+		<a id="speed-up" class="bordered buttoned" onclick="speedUp()">
+			>>
+		</a>
 		<a id="share" class="bordered buttoned centering" onclick="share()">
 			<b id="share-text">Share</b>
 			<div id="share-copy">
@@ -62,6 +71,12 @@
 		</div>
 		<div class="bordered" id="stats">
 		</div>
+		<div id="teams">
+            <div class="bordered" id="team1">
+            </div>
+            <div class="bordered" id="team2">
+            </div>
+        </div>
 	</div>
 	<script>
 		url = document.querySelector('#url').innerHTML
@@ -91,7 +106,7 @@
 			current_step += 1
 			}
 			render_replay(game_data)
-			setTimeout(play_next, 3000)
+			setTimeout(play_next, 3000/(speeds[currentSpeed]))
 		}
 	}
 
@@ -153,6 +168,27 @@
 	  shareText.innerHTML = 'Share'
 	}
 
+	speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 5, 10, 20, 50, 100]
+	currentSpeed = 3
+
+	speedDown = function () {
+		currentSpeed = Math.max(0, currentSpeed-1)
+		speedDiv = document.querySelector('#speed-value')
+		speedDiv.innerHTML = speeds[currentSpeed] + "x"
+	}
+
+	speedUp = function () {
+		currentSpeed = Math.min(speeds.length-1, currentSpeed+1)
+		speedDiv = document.querySelector('#speed-value')
+		speedDiv.innerHTML = speeds[currentSpeed] + "x"
+	}
+
+	resetSpeed = function () {
+		currentSpeed = 3
+		speedDiv = document.querySelector('#speed-value')
+		speedDiv.innerHTML = speeds[currentSpeed] + "x"
+	}
+
 	render_replay = function (data) {
 		d = data[current_step]
 		let events = d.events
@@ -170,7 +206,7 @@
 	    progressEnd.innerHTML = data.length - 1
 
 	    let titleDiv = document.querySelector("#title")
-	    titleDiv.innerHTML = "Blolleyball - " + teams[0] + " vs " + teams[1]
+	    titleDiv.innerHTML = "Blolleyball - " + teams[0].name + " vs " + teams[1].name
 
 	    let fieldDiv = document.querySelector("#field-text")
 	    fieldDiv.innerHTML = field
@@ -225,6 +261,54 @@
 	      statDiv.hidden = false;
 	      statDiv.innerHTML = stats
 	    }
+
+
+
+	    let teamDiv = document.querySelector("#team1")
+        while (teamDiv.firstChild) {
+            teamDiv.removeChild(teamDiv.firstChild);
+        }
+
+        team = teams[0]
+
+        let teamTitle = document.createElement("div")
+        teamTitle.innerHTML = team.name
+        teamDiv.appendChild(teamTitle)
+
+        for (let p in team.players) {
+            player = team.players[p]
+            playerDiv = document.createElement('div')
+            display_p = parseInt(p) + 1
+            playerText = document.createTextNode("#" + display_p + " " + player.name + " " + player.rating + "★")
+            playerDiv.appendChild(playerText)
+            playerDiv.classList.add('small-text')
+            playerDiv.classList.add('align-left')
+            teamDiv.appendChild(playerDiv)
+        }
+
+
+
+        teamDiv = document.querySelector("#team2")
+        while (teamDiv.firstChild) {
+            teamDiv.removeChild(teamDiv.firstChild);
+        }
+
+        team = teams[1]
+
+        teamTitle = document.createElement("div")
+        teamTitle.innerHTML = team.name
+        teamDiv.appendChild(teamTitle)
+
+        for (let p in team.players) {
+            player = team.players[p]
+            playerDiv = document.createElement('div')
+            display_p = parseInt(p) + 1
+            playerText = document.createTextNode("#" + display_p + " " + player.name + " " + player.rating + "★")
+            playerDiv.appendChild(playerText)
+            playerDiv.classList.add('small-text')
+            playerDiv.classList.add('align-left')
+            teamDiv.appendChild(playerDiv)
+        }
 
 	    let shareField = document.querySelector('#share-field')
 	    url = window.location.href

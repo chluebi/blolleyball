@@ -14,7 +14,7 @@ def load_teams():
 	for team in teams:
 		data = {'name': team.name, 'players': []}
 		for player in team.players:
-			data['players'].append({'name': player.name, 'rating': round(player.rating()/0.5)*0.5})
+			data['players'].append({'name': player.name, 'rating': round(player.rating()/0.5)*0.5, 'stats': player.stats})
 
 		teams_data.append(data)
 

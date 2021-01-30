@@ -72,6 +72,9 @@
 #touches {
   grid-area: touches;
 }
+#teams {
+  grid-area: teams;
+}
 
 .grid-container {
   display: grid;
@@ -81,25 +84,26 @@
   '. event event .'
   '. stats stats .'
   '. score-game score-current .'
-  '. score-sets touches .';
+  '. score-sets touches .'
+  '. teams teams .';
   grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(5, auto);
   grid-gap: 1rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  '. title title title .'
-  '. field field score-game .'
-  '. field field score-current .'
-  '. field field score-sets .'
-  '. field field touches .'
-  '. event event event .'
-  '. stats stats stats .';
-  grid-template-columns: auto minmax(auto, 15rem) minmax(auto, 15rem) minmax(auto, 10rem) auto;
+  '. title title title . .'
+  '. field field score-game teams .'
+  '. field field score-current teams .'
+  '. field field score-sets teams .'
+  '. field field touches teams .'
+  '. event event event teams .'
+  '. stats stats stats teams .';
+  grid-template-columns: auto minmax(auto, 15rem) minmax(auto, 15rem) minmax(auto, 10rem) minmax(auto, 20rem) auto;
   grid-template-rows: auto 3rem 5rem auto 2rem auto auto;
   grid-gap: 1rem;
 }
@@ -126,6 +130,25 @@
   'set1'
   'set2'
   'set3';
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  gap: 0.3rem;
+}
+
+
+#team1 {
+  grid-area: team1;
+}
+#team2 {
+  grid-area: team2;
+}
+
+#teams {
+  display: grid;
+  grid-template-areas:
+  'team1'
+  'team2'
+  '.';
   grid-template-columns: auto;
   grid-template-rows: auto;
   gap: 0.3rem;

@@ -21,6 +21,7 @@
 	</div>
 	<script>
 		teams = document.querySelector('#teams');
+		var selectedTeamId = 0
 		children = teams.children;
 		for (let i = 0; i < children.length; i++) {
 		  let team = children[i];
@@ -35,6 +36,7 @@
   			.then(data => teams_data = data['data'])
 		
 		selectTeam = function(id) {
+			selectedTeamId = id
 			team = teams_data[id]
 			titleDiv = document.querySelector('#team-title')
 			titleDiv.innerHTML = team.name
@@ -47,14 +49,59 @@
         		selectedTeam.removeChild(selectedTeam.firstChild);
     		}
 
-			for (player of team.players) {
+			for (let p in team.players) {
+				player = team.players[p]
 				playerDiv = document.createElement('div')
-				playerText = document.createTextNode(player.name + " ★" + player.rating)
+				display_p = parseInt(p) + 1
+				playerText = document.createTextNode("#" + display_p + " " + player.name + " " + player.rating + "★")
 				playerDiv.appendChild(playerText)
 				playerDiv.classList.add('player')
 				playerDiv.classList.add('bordered')
+				playerDiv.classList.add('buttoned')
 				selectedTeam.appendChild(playerDiv)
+				playerDiv.addEventListener('click', function(){
+    				selectPlayer(p);
+		  		});
 			}
+		}
+
+		selectPlayer = function(id) {
+			team = teams_data[selectedTeamId]
+			selectedTeam = document.querySelector('#selected-team')
+
+			selectedPlayer = selectedTeam.children[id]
+
+			for (let child of selectedTeam.children) {
+				if (child.children.length > 0) {
+					child.removeChild(child.children[0])
+				}
+			}
+			
+
+			statsDiv = document.createElement('div')
+			statsDiv.classList.add('small-text')
+			statsDiv.classList.add('align-left')
+
+			console.log(team.players[id].name)
+
+			for (let key in team.players[id].stats) {
+				stat = team.players[id].stats[key]
+				key = key.replaceAll('_', ' ')
+				key = key.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
+				roundedStat = Math.round(stat*5)
+				stars = ''
+				for (let i = 0; i < roundedStat; i++) {
+					stars += '★'
+				}
+				if (stars == '') {stars = '-'}
+				visualStat = key + ' ' + stars
+				statDiv = document.createElement('div')
+				statText = document.createTextNode(visualStat)
+				statDiv.appendChild(statText)
+				statsDiv.append(statDiv)
+			}
+
+			selectedPlayer.appendChild(statsDiv)
 		}
 
 	</script>
