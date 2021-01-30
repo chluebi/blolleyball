@@ -10,6 +10,7 @@ from datetime import datetime
 
 from basegame import basegame
 from util.config_handling import load_config
+from util.webhook_handling import send_message
 
 config = load_config()
 DELAY = config['site']['match_tick']
@@ -90,6 +91,7 @@ def advance_tournament():
 						
 						print('match', team1, team2)
 						m = match(team1, team2, f'data/replays/tournament/{now_string()}_{team1.split()[1]}_{team2.split()[1]}')
+						send_message(f'{team1} vs {team2} match starting!')
 						winner = m.winner.name
 
 						tournament_data[i][j][k] = winner
@@ -102,7 +104,7 @@ def advance_tournament():
 				pass
 
 
-schedule.every().day.at('17:54').do(advance_tournament)
+schedule.every().day.at('13:29').do(random_match)
 
 while True:
     schedule.run_pending()
