@@ -687,7 +687,7 @@ class Match:
 			set_speed = player.stats['overhand_strength'] * 1.5
 			set_precision = pass_precision * 0.4 + player.stats['overhand_precision'] * 1.2 + player.stats['intelligence'] * 0.3
 
-		speed_cat = random.randint(1, 3)
+		speed_cat = random.randint(2, 6)/2
 		set_speed = set_speed * speed_cat
 		set_precision = set_precision / max(1, speed_cat - player.stats['overhand_precision']*2)
 
