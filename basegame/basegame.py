@@ -72,7 +72,7 @@ class Team:
 	def __init__(self, name, players):
 		self.name = name
 		self.players = players
-		self.rotation = self.players
+		self.rotation = self.players.copy()
 
 		for i, player in enumerate(self.players):
 			player.number = i+1
@@ -209,7 +209,15 @@ class Match:
 
 		last['set_score'] = self.set_score
 		last['score'] = self.score
-		last['teams'] = [team.name for team in self.teams]
+
+		teams_data = []
+		for team in self.teams:
+			data = {'name': team.name, 'players': []}
+			for player in team.players:
+				data['players'].append({'name': player.name, 'rating': round(player.rating()/0.5)*0.5, 'stats': player.stats})
+			teams_data.append(data)
+
+		last['teams'] = teams_data
 		self.last['events'] = []
 
 		return last
@@ -679,7 +687,7 @@ class Match:
 			set_speed = player.stats['overhand_strength'] * 1.5
 			set_precision = pass_precision * 0.4 + player.stats['overhand_precision'] * 1.2 + player.stats['intelligence'] * 0.3
 
-		speed_cat = random.randint(1, 3)
+		speed_cat = random.randint(2, 6)/2
 		set_speed = set_speed * speed_cat
 		set_precision = set_precision / max(1, speed_cat - player.stats['overhand_precision']*2)
 

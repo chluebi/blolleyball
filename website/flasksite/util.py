@@ -14,14 +14,14 @@ def load_teams():
 	for team in teams:
 		data = {'name': team.name, 'players': []}
 		for player in team.players:
-			data['players'].append({'name': player.name, 'rating': round(player.rating()/0.5)*0.5})
+			data['players'].append({'name': player.name, 'rating': round(player.rating()/0.5)*0.5, 'stats': player.stats})
 
 		teams_data.append(data)
 
 	return teams_data
 
 def get_folder(path, folder_only=False):
-	return [{'name': file.replace('_', ' ').capitalize(), 'link': file} for file in os.listdir(path) if not folder_only or os.path.isdir(os.path.join(path, file))]
+	return [{'name': file.replace('_', ' ').capitalize(), 'link': file} for file in sorted(os.listdir(path)) if not folder_only or os.path.isdir(os.path.join(path, file))]
 
 
 def json_load_teams():

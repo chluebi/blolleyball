@@ -39,6 +39,14 @@ a, a:hover, a:active, a:visited, a:focus {
   cursor: pointer;
 }
 
+.small-text {
+  font-size: 1rem;
+}
+
+.align-left {
+  text-align: left;
+}
+
 
 #field-text {
   margin-left: auto;

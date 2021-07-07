@@ -3,5 +3,7 @@
 	"port": 37070,
 	"websocket":"ws://chluebi.com/websockets",
 	"websocket_port":36960,
-	"match_tick":3
+	"match_tick":3,
+	"webhook_url":"",
+	"webhook_mention_id":""
 }

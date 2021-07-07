@@ -26,6 +26,12 @@
         </div>
         <div class="bordered" id="stats">
         </div>
+        <div id="teams">
+            <div class="bordered" id="team1">
+            </div>
+            <div class="bordered" id="team2">
+            </div>
+        </div>
     </div>
     <script>
     let socket = new WebSocket( "{{ websocket_url }}" );
@@ -48,7 +54,7 @@
         let teams = d.teams
 
         let titleDiv = document.querySelector("#title")
-        titleDiv.innerHTML = "Blolleyball - " + teams[0] + " vs " + teams[1]
+        titleDiv.innerHTML = "Blolleyball - " + teams[0].name + " vs " + teams[1].name
 
         let fieldDiv = document.querySelector("#field-text")
         fieldDiv.innerHTML = field
@@ -91,6 +97,54 @@
           statDiv.hidden = false;
           statDiv.innerHTML = stats
         }
+
+        let teamDiv = document.querySelector("#team1")
+        while (teamDiv.firstChild) {
+            teamDiv.removeChild(teamDiv.firstChild);
+        }
+
+        team = teams[0]
+
+        let teamTitle = document.createElement("div")
+        teamTitle.innerHTML = team.name
+        teamDiv.appendChild(teamTitle)
+
+        for (let p in team.players) {
+            player = team.players[p]
+            playerDiv = document.createElement('div')
+            display_p = parseInt(p) + 1
+            playerText = document.createTextNode("#" + display_p + " " + player.name + " " + player.rating + "★")
+            playerDiv.appendChild(playerText)
+            playerDiv.classList.add('small-text')
+            playerDiv.classList.add('align-left')
+            teamDiv.appendChild(playerDiv)
+        }
+
+
+
+        teamDiv = document.querySelector("#team2")
+        while (teamDiv.firstChild) {
+            teamDiv.removeChild(teamDiv.firstChild);
+        }
+
+        team = teams[1]
+
+        teamTitle = document.createElement("div")
+        teamTitle.innerHTML = team.name
+        teamDiv.appendChild(teamTitle)
+
+        for (let p in team.players) {
+            player = team.players[p]
+            playerDiv = document.createElement('div')
+            display_p = parseInt(p) + 1
+            playerText = document.createTextNode("#" + display_p + " " + player.name + " " + player.rating + "★")
+            playerDiv.appendChild(playerText)
+            playerDiv.classList.add('small-text')
+            playerDiv.classList.add('align-left')
+            teamDiv.appendChild(playerDiv)
+        }
+
+
       }
       if (event == "over") {
         let titleDiv = document.querySelector("#title")

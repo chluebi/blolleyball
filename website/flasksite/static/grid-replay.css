@@ -31,10 +31,20 @@
 #share {
 	grid-area: share;
 }
+#speed-down {
+	grid-area: speed-down;
+}
+#speed-value {
+	grid-area: speed-value;
+}
+#speed-up {
+	grid-area: speed-up;
+}
 
 #controls {
 	display: grid;
-	grid-template-areas: '. progress . back-to-start back-fast back play forward forward-fast forward-to-end . share .';
+	grid-template-areas: '. progress . back-to-start back-fast back play forward forward-fast forward-to-end . share .'
+	'. . . . . speed-down speed-value speed-up . . . . .';
 	grid-template-columns: auto repeat(8, auto) auto auto auto;
 	gap: 1rem;
 	margin-top: 2rem;
