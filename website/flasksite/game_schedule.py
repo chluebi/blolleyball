@@ -15,6 +15,9 @@ from util.webhook_handling import send_message
 config = load_config()
 DELAY = config['site']['match_tick']
 
+def generate_teams():
+    	
+
 def now_string():
 	now = datetime.now()
 	return now.strftime('%Y.%m.%d_%H.%M.%S')

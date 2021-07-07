@@ -17,7 +17,8 @@ cities = [
 	'Barcelona',
 	'Vienna',
 	'Sun City',
-	'Athens'
+	'Zurich',
+	'British'
 ]
 
 objects = [
@@ -34,25 +35,27 @@ objects = [
 	['⛓️', 'Chains'],
 	['🪁', 'Kites'],
 	['🥚', 'Eggs'],
-	['🔋',  'Batteries']
+	['🔋',  'Batteries'],
+	['🎀', 'Ribbons'],
+	['🧲', 'Magnets']
 ]
 
 player_names = [
 	'Penguin',
-	'Pitch'
+	'Pitch',
 	'Jaxon',
 	'Dry',
 	'Ayla',
 	'Wall',
-	'Syllia'
+	'Syllia',
 	'Umeris',
 	'Sibren',
 	'Veenhuis',
-	'Labyrinth'
+	'Labyrinth',
 	'Quinn',
 	'Chaos',
 	'Fade',
-	'Echo'
+	'Echo',
 	'Nox',
 	'Charles',
 	'Magnus',
@@ -68,15 +71,15 @@ player_names = [
 	'Mechanical',
 	'Jeanne',
 	'Luna',
-	'Shady'
+	'Shady',
 	'Angel',
-	'Skeletal'
+	'Skeletal',
 	'Curator',
 	'Royal',
 	'Mandrake',
-	'Brown'
+	'Brown',
 	'Cobra',
-	'Liang'
+	'Liang',
 	'Huan',
 	'Taute',
 	'Wildmane',
@@ -84,7 +87,7 @@ player_names = [
 	'Tizwyn',
 	'Nymph',
 	'Wynter',
-	'Mario'
+	'Mario',
 	'Vogl',
 	'Caspian',
 	'Lyn',
@@ -94,13 +97,13 @@ player_names = [
 	'Freiburg',
 	'Omen',
 	'Mask',
-	'Lindsay'
+	'Lindsay',
 	'Chalice',
 	'Noël',
 	'Clair',
 	'Lydia',
 	'Plouffe',
-	'Gus'
+	'Gus',
 	'Norman',
 	'Hegel',
 	'Beans',
@@ -196,9 +199,7 @@ for k in range(16):
 			break
 		else:
 			first = random.choice(player_names)
-			player_names.remove(first)
 			last = random.choice(player_names)
-			players.remove(last)
 
 		stats = Player.random_stats()
 		player = Player(f'{first} {last}', stats)
