@@ -11,8 +11,8 @@ role_id = config['site']['webhook_mention_id']
 
 def send_message(title):
 	embed = {
-		'title': title,
-		'description' : f'<@&{role_id}>'
+		'title': 'Automatic Notification',
+		'description' : f'<@&{role_id}> \n\n {title}'
 	}
 
 	message = {
@@ -23,4 +23,3 @@ def send_message(title):
 	headers = {'Content-Type': 'application/json'}
 
 	r = requests.post(webhook_url, data=message, headers=headers)
-	print(r)
