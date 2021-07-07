@@ -122,7 +122,7 @@ send_message(f'Teams reset.')
 generate_teams()
 populate_tournament()
 clear_tournament_replays()
-schedule.every().day.at('16:00').do(random_match)
+schedule.every().day.at('16:00').do(advance_tournament)
 
 while True:
     schedule.run_pending()
