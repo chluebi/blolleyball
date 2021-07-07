@@ -5,4 +5,4 @@ util/__pycache__/
 
 website/flasksite/__pycache__/
 
-configs
+configs/site.json
