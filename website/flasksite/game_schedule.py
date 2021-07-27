@@ -84,14 +84,18 @@ def advance_tournament():
         tournament_data = json.load(f)['data']
 
     for i, r in enumerate(tournament_data):
+        print(i)
+
+        if i == len(tournament_data)-1:
+            send_message(f'Teams reset.')
+            print('Teams reset.')
+            generate_teams()
+            populate_tournament()
+            clear_tournament_replays()
+            return
+
         for j, m in enumerate(r):
             for k, team in enumerate(m):
-                if i == len(tournament_data)-1:
-                    send_message(f'Teams reset.')
-                    generate_teams()
-                    populate_tournament()
-                    clear_tournament_replays()
-
                 if team is None:
                     if i == 0:
                         raise Exception('Not enough teams')
@@ -104,10 +108,12 @@ def advance_tournament():
                     send_message(f'{team1} vs {team2} match starting!')
                     m = match(team1, team2, f'data/replays/tournament/{now_string()}_{team1.split()[1]}_{team2.split()[1]}')
                     
-                    if i == len(tournament_data)-2:
-                        send_message(f'{m.winner.name} won the tournament.')
-
                     winner = m.winner.name
+
+                    if i == len(tournament_data)-2:
+                        print(f'{winner} won the tournament.')
+                        send_message(f'{winner} won the tournament.')
+                        return
 
                     tournament_data[i][j][k] = winner
                     tournament_data = {'data': tournament_data}
@@ -122,7 +128,9 @@ send_message(f'Teams reset.')
 generate_teams()
 populate_tournament()
 clear_tournament_replays()
-schedule.every().day.at('16:00').do(advance_tournament)
+
+schedule.every().day.at('20:00').do(advance_tournament)
+
 
 while True:
     schedule.run_pending()
